@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4"
+>
+<shelp:name>
+newGnumericWorkbook
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+newGnumericWorkbook
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Creates a new Gnumeric workbook
+</shelp:title>
+
+
+<shelp:description>
+
+This creates a new workbook and window in which it is contained.  The
+contents can be optionally loaded from a file
+when the workbook is created.
+
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage>
+<shelp:sname>
+newGnumericWorkbook
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+file
+</shelp:argName>
+<shelp:defaultValue>
+NULL
+</shelp:defaultValue>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:argName>
+file
+</shelp:argName>
+<shelp:argDescription>
+The name of a file or URL containing a previously saved Gnumeric
+worksheet.
+This is loaded into the new worksheet.
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+<shelp:value>
+An object of class <s:class>GnumericWorkbookRef</s:class>
+</shelp:value>
+
+<shelp:references>
+
+</shelp:references>
+
+
+<shelp:author>
+<name>Duncan Temple Lang</name>
+<email>duncan@research.bell-labs.com</email>
+<url>http://cm.bell-labs.com/stat/duncan</url>
+</shelp:author>
+
+
+<shelp:notes>
+<shelp:note>
+</shelp:note>
+</shelp:notes>
+
+<shelp:seeAlso>
+<shelp:sref>
+</shelp:sref>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:code>
+<![CDATA[
+	book <- newGnumericWorkbook()
+        names(book)
+        newSheet("my sheet", book)
+]]>
+</shelp:code>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+spreadsheet
+</shelp:keyword>
+<shelp:keyword>
+inter-system interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

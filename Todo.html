@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title></title>
+</head>
+
+<body>
+<h1>Todo List for R-Gnumeric Plugin</h1>
+
+<dl>
+  <dt>
+  <li>
+      Handle shared environments for functions when saving and restoring.
+  <dd>
+Add
+<pre>
+    if(TYPEOF(x) == ENVSXP && TYPEOF(y) == ENVSXP) {
+        SEXP ans;
+	PROTECT(ans = allocVector(LGLSXP, 1));     
+        LOGICAL(ans)[0] = (x->u.envsxp.enclos == y->u.envsxp.enclos);
+        UNPROTECT(3);
+        return(ans);
+    }
+</pre>
+to
+<pre>SEXP do_relop_dflt(SEXP call, SEXP op, SEXP x, SEXP y)</pre>
+in relop.c      
+
+
+
+      
+  <dt>
+  <li> Put scrollbars on the text and list in the editor.
+  <dd>
+  
+  <dt>
+  <li> Methods from Gnumeric.idl
+  <dd>
+        cursor_move()
+        select_all()
+        selection_append_range()
+<br>
+        insert column and rows.
+  <p>
+      Done:
+      <br>
+        cursor_set()
+        make_cell_visible()
+  <dt>
+  <li> Function to switch the view to a different sheet.
+  <dd> Doesn't seem to be anything in the API.
+
+  <dt>
+  <li> Documentation for functions (in XML).
+  <dd> And the manuals also.
+      Actually the manuals are probably best
+      since the help pages are hard to view when running Gnumeric.
+      
+  <dt>
+  <li> Finish off the "$" operators for GnumericCellRef class.
+  <dd>
+      background and foreground color, font, format, border
+      and protection.
+<p>
+      Most are done, need to do the get (set almost done)
+      and handle borders.
+<p>
+    Can't set border currently. Just need to add the code.
+      
+  <dt>
+  <li> Like to get the S functions and initialization (registration,
+      etc.) into the XML file itself rather than depending
+      on the R_GNUMERIC_PROFILE setting.
+
+  <dd>
+      Instead, put them in $HOME/.gnumeric/Rprofile,
+      $HOME/.gnumeric/&lt;version-number&gt;/plugins/R/Rprofile
+      and the environment variable
+        R_GNUMERIC_PROFILE
+      <p>
+    Maybe put the name of the file in a comment.
+      Thinking of adding a plugin for reading and writing
+      files which would just extend the existing Gnumeric
+      mechanism.
+
+  <dt>
+  <li> Add a once function/argument which replaces the contents
+       of the cell defining the S call with the value and so avoids
+       recomputing it each time.
+  <dd> Logistic problems when we save this!
+      
+
+  <dt>
+  <li> getRegisteredFunctions() should take a <b>full</b> logical
+       argument indicating whether a full description is desired which includes
+       the argument types, etc.
+  <dd>
+
+  <dt>
+  <li> Allowing setting a cell by expression.
+  <dd> See <code>sheet_cell_set_expr()</code>.
+       Need to figure out what the expressions look like.
+      
+  <dt>
+  <li> Add support for the sheet pointers and methods.
+  <dd> Are these the ones I have already implemented
+       [, [[, etc?
+
+  <dt>
+  <li> General converter mechanism.
+  <dd> Could also potentially convert S object to XML
+       and then read that into gnumeric cells.
+
+  <dt>
+  <li> Add tests for the class of a reference object.
+  <dd> Either at the S-level or C-level (preferrable).
+       <p>
+     The general mechanism is there, just haven't transitioned the
+      code
+       to use it.
+
+      
+  <dt>
+  <li> Handle classes (and general lists?) in conversion as references.
+  <dd>
+
+
+</dl>
+
+<h2>Working</h2>
+<dl>
+
+  <dt>
+  <li> Remove a sheet.
+  <dd> See removeSheet in sheet.S<p>
+       Goes into an inifite loop. Not certain why, but  it is
+       the routines we call in Gnumeric that cause this. Perhaps we
+       need to look at the API! :-)
+  <p>
+   That problem is fixed now, but there is the inherent problem
+  of removing a sheet causing the workbook to be recalculated
+  and hence the cell expression and S call to removeSheet being
+  repeated ad nauseam.
+      
+  <dt>
+  <li> See if we can get the names of the columns.
+  <dd>
+       Doesn't appear that one can edit them in Gnumeric
+       so they are fixed.
+       So add support for using names and map them to
+       column indices.
+      <p>
+       The names are A...Z, AA...AZ, BA...BZ, CA...CZ, ....
+  
+  <dt>
+  <li> Add variable number of arguments handler.
+  <dd>
+      
+  
+  <dt>
+  <li> Handle errors correctly.
+  <dd> Replace the jump_now() with what is coming in the
+      exception C-level API for R.
+<p>
+     Requires Defn.h to get RCNTXT definition.
+     Works now, but need to get this into the R API.
+
+  
+  <dt>
+  <li> Apply formatCell to a range of cells.
+  <dd> Use the mechanism in updateCell().
+       <p>
+     Code implemented. Seems functional.
+       See testFormat() and the <a href="examples/formatting">formatting</a>
+      example sheet.
+  
+  <li> Function in S to read region of a sheet as a data frame.
+  <dd> Also, function to get current selection region.
+  <dt>
+      See getSheetColumn() and getSheetRegion() in sheet.S.
+
+  
+  <dt>
+  <li> Matrix-like [ and [&lt;- operators.
+  <dd> Current ones are element-wise, not column  and row oriented.
+  <p>
+   Basic version done in sheet.S    
+
+  <dt>
+  <li> Text alignments must have names.
+  <dd> Now done in <code>gnumeric.getAlignValue()</code>
+  
+  <li> Add a Gnumeric specific Profile that is sourced when we start.
+  <dd> See .First.lib. 
+<p>
+    Extend to  multiple files separated by <code>:</code>
+    (or the platform specific separator).
+
+  <dt>
+  <li> Formatting functions for a cell, range of cells, etc.
+  <dd> See format.S
+      <p>
+    Need to figure out
+      <ul>
+	<li> sharing the style across the cells within
+	    a column.<br>
+  Done now. See updateCell() and updateSCell().
+      </ul>
+  
+
+  
+  <dt>
+  <li> Function in S to load a file into Gnumeric.
+  <dd> See workbook_read(). Need WorkbookControl.
+       Can we read a file directly into a sheet, or do we need
+      a new workbook.
+      <p>
+     Currently can start a new workbook with a file.
+  <dt>        
+  <li> List of the existing sheet names (and sheet references).
+  <dd> See workbook.S
+
+  <dt>
+  <li>Get dim or extent of a sheet. 
+  <dd> dim is the size of the bounding box.
+      extent is the start and end cell of the box.
+
+  <dt>
+  <li> Recalc function.
+  <dd>  See recalcBook().
+
+  <dt>
+  <li> Get the naming of new sheets to be unique.
+  <dd> Use the gnumeric facility. Since we can also get the names
+       of a worksheet's sheets, we can do the computations in R.
+<p>
+     uniqueSheetName() function in workbook.S
+
+  <dt>
+  <li> Function in S to write an object into a region of a sheet.
+  <dd> See insert.S for matrix.
+  <dt>
+    Matrix done. Vectors also via the "[<-" function.
+    Need data frames and then other "primitive"/builtin types.    
+
+
+  <dt>
+  <li> Want a way to determine if R is being run from within Gnumeric.
+  <dd> Check the commandArgs() to see if RGnumeric is the first
+      element.
+     
+</dl>
+
+<hr>
+<address></address>
+<!-- hhmts start -->
+Last modified: Mon Jul  2 06:56:30 EDT 2001
+<!-- hhmts end -->
+</body> </html>

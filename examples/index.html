@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title></title>
+<link rel="stylesheet" href="../OmegaTech.css"
+</head>
+
+<body>
+<h1>R-Gnumeric Examples</h1>
+
+This is a collection of examples of the R-Gnumeric plugin.  The
+simplest way to view them is to set the environment variable
+<code>R_GNUMERIC_PROFILE</code> to <a href="Profile">Profile</a>
+
+<dl>
+  <dt>
+  <li> <a href="ExampleProfile">An sample profile for registering functions.</a>
+  <dd>
+  <dt>
+  <li> <a href="bernoulli.S">Another sample profile</a>
+  <dd>
+  <dt>
+  <li> <a href="cell">A test of accessing cells from R</a>
+  <dd>
+
+  <dt>
+  <li> Simple regression example with output in a new sheet.
+       <a href="lm.S">lm.S</a> &amp; <a href="lm">lm</a>
+  <dd>
+      
+  <dt>
+  <li> <a href="cellRef">A test of the <code>GnumericCellRef</code>
+       class</a>
+  <dd>
+  <dt>
+  <li> <a href="define">A test of the inadvisable defining new
+      functions in a spreadsheet itself.</a>
+  <dd> This, of course, can create circularities in the sheet
+      and repeated definitions each time the cells are re-calculated.
+  <dt>
+  <li> <a href="example">An example of the different call features.</a>
+  <dd>
+  <dt>
+  <li> <a href="formatting">A test of the formatting of a cell</a>
+  <dd>
+  <dt>
+  <li> <a href="graphics">Example of using a graphics device as a
+      separate
+      window, connected to the calculations in the spreadsheet.</a>
+  <dd>
+
+  <dt>
+  <li> <a href="lmResults">Simple example of displaying the result of
+      a regression in a separate worksheet.</a>
+  <dd> This mirrors the regression tool in the standard gnumeric,
+      and shows how easy it is to export statistical functionality.
+
+  <dt>
+  <li> <a href="newSheet">Testing the ability to create a new sheet
+      within a workbook.</a>
+  <dd>
+  <dt>
+  <li> <a href="remove">Testing the ability to remove a sheet within
+      a workbook</a>
+  <dd> I think this fails.
+
+  <dt>
+  <li><a href="sheetAccess">Tests the indexing in R of
+      sheets within a workbook reference</a>
+  <dd> This uses the familiar <code>[</code> operator
+      to index a sheet by number of name.
+
+  <dt>
+  <li> <a href="subset">Test of the <code>[&lt;-</code> operator
+      for sheet references</a>
+  <dd> This checks we can assign into cells from R.
+
+  <dt>
+  <li> <a href="testRef">Tests the <code>CellRef</code> class</a>
+  <dd> Uses the [[ operator to get a cell reference and then
+      queries and sets the different attributes such as alignment,
+      etc.
+
+  <dt>
+  <li> <a href="showFunctions">List of registered functions</a>
+  <dd> A list of the registered functions displayed in a worksheet.
+      
+</dl>
+
+
+<hr>
+<address></address>
+<!-- hhmts start -->
+Last modified: Mon Nov 11 10:29:57 UTC 2002
+<!-- hhmts end -->
+</body> </html>

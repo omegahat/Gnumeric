@@ -1,0 +1,4 @@
+gtmp <- dirname(Sys.getenv("R_GNUMERIC_PROFILE"))
+source(file.path(gtmp, "ExampleProfile"))
+source(file.path(gtmp, "regress.S"))
+cat("Done\n")

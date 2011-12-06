@@ -1,0 +1,209 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp">
+<shelp:name>
+formatCell
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+formatCell
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Sets the format attributes of a Gnumeric cell.
+</shelp:title>
+
+
+<shelp:description>
+
+This can be used to specify the appearance and formatting
+characteristics of a Gnumeric cell.  It allows one to specify
+attributes such as color, font, value format style, border, etc.  It
+differs from setting the attribute of a cell since the format is an S
+object and can be applied independently to different cells.  One can
+instantiate one or more format descriptions at any time and apply them
+as "templates".
+
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="formatCell">
+<shelp:sname>
+formatCell
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+row
+</shelp:argName>
+<shelp:defaultValue>
+1
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+column
+</shelp:argName>
+<shelp:defaultValue>
+1
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+.sheet
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+...
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+format
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:argName>
+row
+</shelp:argName>
+<shelp:argDescription>
+An integer identifying the
+row in the sheet in which the cell 
+of interest is located.
+This is used in conjunction with
+<shelp:argRef>col</shelp:argRef>
+to identify the single cell
+to be formatted.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+column
+</shelp:argName>
+<shelp:argDescription>
+
+An integer or string identifying the column in the sheet in which the
+cell of interest is located.  This is used in conjunction with
+<shelp:argRef>row</shelp:argRef> to identify the single cell to be
+formatted. If a string is used, this is the name of the column
+as it appears in the column titles (e.g. A, B, ..., Z, AA, AB, ..., ...)
+
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+.sheet
+</shelp:argName>
+<shelp:argDescription>
+
+A reference to the Gnumeric worksheet in which the cell of interest is
+located.  This is an object of class
+<shelp:class>GnumericSheetRef</shelp:class> and should be passed to R
+via a call from Gnumeric to an R function.
+
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+...
+</shelp:argName>
+<shelp:argDescription>
+
+A collection of name-value pairs that specify the different attributes
+to set for the cell.
+
+
+</shelp:argDescription>
+
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+format
+<shelp:argDescription>
+ <!-- Describe format here -->
+</shelp:argDescription>
+</shelp:argName>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+  <!-- If necessary, more details than the  __description__  above -->
+</shelp:details>
+
+
+<shelp:value>
+<!-- Describe the value returned  If it is a LIST, use  <description><item><label>comp1</label>Description of `comp1'</item>  <item><label>comp2</label>Description of `comp2'</item>  ...  </description>-->
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:functionRef>$&lt;-.GnumericCellRef</shelp:functionRef>
+<a href="">
+</a>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:first>
+	<!-- code run before the example to initialize variables, etc. -->
+</shelp:first>
+<shelp:code>
+	<!-- the actual code for the example -->
+</shelp:code>
+<shelp:output>
+	<!-- expected output -->
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

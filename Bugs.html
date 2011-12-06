@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title></title>
+</head>
+
+<body>
+<h1></h1>
+
+<dl>
+  <dt>the removeSheet function goes into a tail spin!
+  <dd>      See the workbook <a href="remove.gnumeric">remove.gnumeric</a>.
+</dl>
+
+<h2>Fixed</h2>
+<dl>
+  <dt>
+  <li>
+      The return value from gnumeric.getFunctions() is corrupted.
+  <dd> It won't print without crashing gnumeric.
+      <p>
+  Not using g_list_nth_data(), but g_list_nth().
+</dl>
+
+
+<hr>
+<address></address>
+<!-- hhmts start -->
+Last modified: Thu Apr 19 10:07:29 EDT 2001
+<!-- hhmts end -->
+</body> </html>

@@ -1,0 +1,325 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4"
+>
+<shelp:name>
+dim.GnumericSheetRef
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+dim.GnumericSheetRef
+</shelp:alias>
+<shelp:alias>
+isEmpty.GnumericSheetRef
+</shelp:alias>
+<shelp:alias>
+redraw.GnumericSheetRef
+</shelp:alias>
+<shelp:alias>
+setDirty.GnumericSheetRef
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Query and Control a Gnumeric Worksheet
+</shelp:title>
+
+
+<shelp:description>
+These functions operate on a single Gnumeric
+worksheet and allow the caller to query
+the size of the sheet or whether it contains
+any non-empty cells, and
+also to set its state such as needing
+to be recalculated or forcing it to be redrawn.
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="dim.GnumericSheetRef">
+<shelp:sname>
+dim.GnumericSheetRef
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+collapse
+</shelp:argName>
+<shelp:defaultValue>
+T
+</shelp:defaultValue>
+</shelp:arg>
+</shelp:usage>
+<shelp:usage name="isEmpty.GnumericSheetRef">
+<shelp:sname>
+isEmpty.GnumericSheetRef
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+sheet
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+i
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+j
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+<shelp:usage name="redraw.GnumericSheetRef">
+<shelp:sname>
+redraw.GnumericSheetRef
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+cells
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+headers
+</shelp:argName>
+<shelp:defaultValue>
+FALSE
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+recalc
+</shelp:argName>
+<shelp:defaultValue>
+FALSE
+</shelp:defaultValue>
+</shelp:arg>
+</shelp:usage>
+<shelp:usage name="setDirty.GnumericSheetRef">
+<shelp:sname>
+setDirty.GnumericSheetRef
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+
+<shelp:usage name="sheetExtent">
+<shelp:sname>
+sheetExtent
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+.sheet
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:usedIn>
+dim.GnumericSheetRef
+</shelp:usedIn>
+<shelp:usedIn>
+setDirty.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+x
+</shelp:argName>
+<shelp:argDescription>
+ <!-- Describe x here -->
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+dim.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+collapse
+</shelp:argName>
+<shelp:argDescription>
+a logical value indicating whether
+the size of the sheet should
+be given as the extreme cell locations (row and columns)
+of the top-left and bottom-right most entries
+or collapsed into the dimension (number of rows and columns)
+of the range enclosing these extremes.
+The difference arises when the first rows and columns
+are empty and the content is in the interior of the sheet.
+This allows one to obtain the number of contguously populated
+cells or the specific locations of the region containing all the data.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+isEmpty.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+sheet
+</shelp:argName>
+<shelp:argDescription>
+ The Gnumeric worksheet reference
+to which the queries and operations are to apply.
+This is an object of class 
+<s:class>GnumericSheetRef</s:class>
+and should be obtained via  a Gnumeric function call
+and its <s:arg>.sheet</s:arg>
+argument and not stored across calls.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+isEmpty.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+i
+</shelp:argName>
+<shelp:argDescription>
+an integer identifying the
+row in the sheet.
+This is used with <s:argRef name="j"/>
+to identify the cell 
+to determine if it is empty.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+isEmpty.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+j
+</shelp:argName>
+<shelp:argDescription>
+an string or integer identifying
+the column in the sheet.
+See <s:argRef name="i"/>.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+redraw.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+cells
+</shelp:argName>
+<shelp:argDescription>
+ <!-- Describe cells here -->
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+redraw.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+headers
+</shelp:argName>
+<shelp:argDescription>
+ <!-- Describe headers here -->
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+redraw.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+recalc
+</shelp:argName>
+<shelp:argDescription>
+ <!-- Describe recalc here -->
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+.sheet
+</shelp:argName>
+<shelp:argDescription>
+a reference to the Gnumeric worksheet.
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+  <!-- If necessary, more details than the  __description__  above -->
+</shelp:details>
+
+
+<shelp:value>
+<!-- Describe the value returned  If it is a LIST, use  <description><item><label>comp1</label>Description of `comp1'</item>  <item><label>comp2</label>Description of `comp2'</item>  ...  </description>-->
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:sref>
+</shelp:sref>
+<a href="">
+</a>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:first>
+	<!-- code run before the example to initialize variables, etc. -->
+</shelp:first>
+<shelp:code>
+	<!-- the actual code for the example -->
+</shelp:code>
+<shelp:output>
+	<!-- expected output -->
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title></title>
+<link rel="stylesheet" href="OmegaTech.css"
+</head>
+
+<body>
+
+
+<h1>Compilation</h1>
+
+This package uses R as a plugin to Gnumeric.  To use it, you will need
+(no surprises)
+<dl>
+  <dt> Gnumeric, and 
+  <dd> R
+</dl>
+and you will need to have R in the form of a shared library,
+<code>$R_HOME/bin/libR.so</code>. To do this, reconfigure and
+recompile R using the commands <pre>
+ ./configure --enable-R-shlib <i>any other arguments</i>
+ make
+</pre>
+
+<p>
+
+To install this package, you will also need the source code for <a
+href="http://www.gnome.org/projects/gnumeric">gnumeric</a>. I have
+used version 0.64 for the original implementation and, more recently,
+versions 1.0.1, 1.0.8 and 1.0.10. The plugin may work with earlier
+versions, but there is not guarantee.  We would appreciate hearing of
+any problems and successes (<a
+href="mailto:omega-devel@omegahat.org">omega-devel@omegahat.org</a>).
+Gnumeric has its own dependencies which we will not describe here.
+
+<p>
+
+You need the source code for Gnumeric since a plugin needs access to
+header files that are not installed when Gnumeric is installed on your
+machine.  Note that you must ensure that the Gnumeric source
+corresponds to the version that you run.  Ideally, you should download
+the most recent version of Gnumeric and build and install it from
+source. Not only will you need the source of Gnumeric, but also its
+gnumeric-config.h file which is generated when you configure the
+source for building. 
+
+
+<p>
+
+At this point, let's assume you have the Gnumeric source and a running
+Gnumeric.  You will need to tell the configuration script for this R
+package where the directory containing the Gnumeric source is located.
+The directory of interest is the one containing the <b>src/</b>,
+<b>plugins/</b> and <b>po/</b> directories of the gnumeric source.  If
+you download the Gnumeric source and simply un-tar it, the resulting
+top-level directory is the one we need.
+
+<p>
+There are two ways to specify this location.
+The first is by setting the environment variable <code>GNUMERIC_DIR</code>
+to the fully qualified name of the that directory.
+The second is to specify it as a command line argument
+to the <code>configure</code> script.
+This is done 
+ as the value of the <code>--with-gnumeric</code> argument
+       of the configure script.
+Since configure is invoked via the R INSTALL command,
+passing an argument to it is slightly more complicated.
+This is done as
+<pre>
+ R CMD INSTALL --configure-args='gnumeric/directory/' RGnumeric
+</pre>
+
+
+<p>
+
+The compilation also requires access to the file named
+<b>gnomesupport.h</b> that is installed with the gnome libraries.  The
+configuration script attempts to find this in a variety of different
+ways. As a last resort, it explicitly looks for it in the directory
+<code>/usr/local/lib/gnome-libs/include/</code>.  If it is not found,
+the configuration will fail. In that case, you can specify the
+directory in which it is available using the environment variable
+<code>EXTRA_INCLUDES</code>.
+
+
+
+<h1>Installation</h1>
+
+At this point, the plugin library is ready to be used in
+Gnumeric. However, you must tell Gnumeric of its existence.  To do
+this, you have to decide where to install the plugin library
+so that gnumeric will find it when it starts.
+You essentially have two choices:
+<ul>
+  <li> your home directory, for personal use
+  <li> the system-wide plugin directory for all users,
+       typically
+       <code>/usr/local/lib/gnumeric/0.64/plugins</code>
+</ul>
+
+The default is to put it in your home directory, specifically in the
+directory <code>.gnumeric/<i>version-number</i>/plugins/R</code>.
+To install it in a different place, specify the target
+directory by setting the environment variable
+<code>INSTALL_DIR</code>.
+
+<p>
+
+The <code>cleanup</code> script will copy the file
+<code>plugin.xml</code> in this distribution to the installation
+directory where gnumeric looks for plugins. It will also create a
+symbolic link to the shared library in the installed R library
+
+<p>
+
+To perform this installation as part of the R installation,
+invoke <code>R CMD INSTALL</code> with the <code>-c</code>
+argument.
+<pre>
+  R CMD INSTALL -c RGnumeric_0.1-0.tar.gz
+</pre>
+At this point, Gnumeric should be able to see the plugin.
+
+
+<h1><a name="activation"></a>Activating the Plugin</h1>
+
+To activate the plugin, you need to start Gnumeric. Before doing this
+however, make certain that your <code>LD_LIBRARY_PATH</code>
+environment variable includes the directory
+in which libR.so is located. This is in <code>$R_HOME/bin/</code>
+and you can find the value of <code>R_HOME</code>
+via the command
+<pre>
+ R RHOME
+</pre>
+
+<p>
+
+Now you are ready to run Gnumeric and activate the plugin.  Start
+Gnumeric by issuing the command <code>gnumeric</code>.  Then, click on
+the <i>Tools</i> menu and select <i>Plug-ins...</i>.  This dialog
+window allows you to scroll through the list of available plugins, the
+top component showing the already active ones and the lower component
+showing the currently inactive ones.  If the entry <code>R
+Plugin</code> is not in the Active plugins box, click on it in the
+<i>Available inactive plugins</i> box and then click the <i>Activate
+plugin</i> button to the right.  If all goes well, the <i>R Plugin</i>
+entry should now be in the top component of the window indicating it
+is active. Check the terminal console for any error messages and look
+at the FAQ for how to deal with them.  Please note that you will only
+need to do activate the plugin once.
+
+<h1>Testing the Plugin</h1>
+
+To test the plugin, you can open one of the files in the examples/
+directory of this distribution.  These are installed in the <a
+href="inst/examples/index.html"><code>examples/</code></a> directory.
+
+You will need to set the environment variable
+<code>R_GNUMERIC_PROFILE</code> to
+<code>ExampleProfile</code> in the <code>examples/</code>
+directory of the installed library.
+Please read <a href="inst/Docs/QuickOverview.pdf">QuickOverview</a>.
+
+<hr>
+<address></address>
+<!-- hhmts start -->
+Last modified: Fri Nov 15 09:38:39 UTC 2002
+<!-- hhmts end -->
+</body> </html>

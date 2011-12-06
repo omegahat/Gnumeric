@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<gmr:Workbook xmlns:gmr="http://www.gnome.org/gnumeric/v6">
+  <gmr:Attributes>
+    <gmr:Attribute>
+      <gmr:name>WorkbookView::show_horizontal_scrollbar</gmr:name>
+      <gmr:type>4</gmr:type>
+      <gmr:value>TRUE</gmr:value>
+    </gmr:Attribute>
+    <gmr:Attribute>
+      <gmr:name>WorkbookView::show_vertical_scrollbar</gmr:name>
+      <gmr:type>4</gmr:type>
+      <gmr:value>TRUE</gmr:value>
+    </gmr:Attribute>
+    <gmr:Attribute>
+      <gmr:name>WorkbookView::show_notebook_tabs</gmr:name>
+      <gmr:type>4</gmr:type>
+      <gmr:value>TRUE</gmr:value>
+    </gmr:Attribute>
+  </gmr:Attributes>
+  <gmr:Summary>
+    <gmr:Item>
+      <gmr:name>application</gmr:name>
+      <gmr:val-string>gnumeric</gmr:val-string>
+    </gmr:Item>
+    <gmr:Item>
+      <gmr:name>author</gmr:name>
+      <gmr:val-string>Duncan Temple Lang</gmr:val-string>
+    </gmr:Item>
+  </gmr:Summary>
+  <gmr:Names/>
+  <gmr:Geometry Width="720" Height="347"/>
+  <gmr:Sheets>
+    <gmr:Sheet DisplayFormulas="false" HideZero="false" HideGrid="false" HideColHeader="false" HideRowHeader="false">
+      <gmr:Name>Sheet1</gmr:Name>
+      <gmr:MaxCol>0</gmr:MaxCol>
+      <gmr:MaxRow>0</gmr:MaxRow>
+      <gmr:Zoom>1.000000</gmr:Zoom>
+      <gmr:Names/>
+      <gmr:PrintInformation>
+        <gmr:Margins>
+          <gmr:top Points="28.3" PrefUnit="cm"/>
+          <gmr:bottom Points="28.3" PrefUnit="cm"/>
+          <gmr:left Points="28.3" PrefUnit="cm"/>
+          <gmr:right Points="28.3" PrefUnit="cm"/>
+          <gmr:header Points="14.2" PrefUnit="cm"/>
+          <gmr:footer Points="14.2" PrefUnit="cm"/>
+        </gmr:Margins>
+        <gmr:vcenter value="0"/>
+        <gmr:hcenter value="0"/>
+        <gmr:grid value="0"/>
+        <gmr:even_if_only_styles value="1"/>
+        <gmr:monochrome value="0"/>
+        <gmr:draft value="0"/>
+        <gmr:titles value="0"/>
+        <gmr:repeat_top value=""/>
+        <gmr:repeat_left value=""/>
+        <gmr:order>r_then_d</gmr:order>
+        <gmr:orientation>landscape</gmr:orientation>
+        <gmr:Header Left="" Middle="&amp;[TAB]" Right=""/>
+        <gmr:Footer Left="" Middle="Page &amp;[PAGE]" Right=""/>
+        <gmr:paper>A4</gmr:paper>
+      </gmr:PrintInformation>
+      <gmr:Styles>
+        <gmr:StyleRegion startCol="0" startRow="0" endCol="255" endRow="65535">
+          <gmr:Style HAlign="1" VAlign="2" WrapText="0" Orient="1" Shade="0" Indent="0" Fore="0:0:0" Back="FFFF:FFFF:FFFF" PatternColor="0:0:0" Format="General">
+            <gmr:Font Unit="9" Bold="0" Italic="0" Underline="0" StrikeThrough="0">Helvetica</gmr:Font>
+            <gmr:StyleBorder>
+              <gmr:Top Style="0"/>
+              <gmr:Bottom Style="0"/>
+              <gmr:Left Style="0"/>
+              <gmr:Right Style="0"/>
+              <gmr:Diagonal Style="0"/>
+              <gmr:Rev-Diagonal Style="0"/>
+            </gmr:StyleBorder>
+          </gmr:Style>
+        </gmr:StyleRegion>
+      </gmr:Styles>
+      <gmr:Cols DefaultSizePts="48">
+        <gmr:ColInfo No="0" Unit="48" MarginA="2" MarginB="2" HardSize="0" Hidden="0"/>
+      </gmr:Cols>
+      <gmr:Rows DefaultSizePts="12.8">
+        <gmr:RowInfo No="0" Unit="12.8" MarginA="1" MarginB="0" HardSize="0" Hidden="0"/>
+      </gmr:Rows>
+      <gmr:Selections CursorCol="0" CursorRow="1">
+        <gmr:Selection startCol="0" startRow="1" endCol="0" endRow="1"/>
+      </gmr:Selections>
+      <gmr:Cells>
+        <gmr:Cell Col="0" Row="0">
+          <gmr:Content>=lmResults()</gmr:Content>
+        </gmr:Cell>
+      </gmr:Cells>
+      <gmr:Solver TargetCol="-1" TargetRow="-1" ProblemType="1" Inputs=""/>
+    </gmr:Sheet>
+    <gmr:Sheet DisplayFormulas="false" HideZero="false" HideGrid="false" HideColHeader="false" HideRowHeader="false">
+      <gmr:Name>regress</gmr:Name>
+      <gmr:MaxCol>9</gmr:MaxCol>
+      <gmr:MaxRow>9</gmr:MaxRow>
+      <gmr:Zoom>1.000000</gmr:Zoom>
+      <gmr:Names/>
+      <gmr:PrintInformation>
+        <gmr:Margins>
+          <gmr:top Points="28.3" PrefUnit="cm"/>
+          <gmr:bottom Points="28.3" PrefUnit="cm"/>
+          <gmr:left Points="28.3" PrefUnit="cm"/>
+          <gmr:right Points="28.3" PrefUnit="cm"/>
+          <gmr:header Points="14.2" PrefUnit="cm"/>
+          <gmr:footer Points="14.2" PrefUnit="cm"/>
+        </gmr:Margins>
+        <gmr:vcenter value="0"/>
+        <gmr:hcenter value="0"/>
+        <gmr:grid value="0"/>
+        <gmr:even_if_only_styles value="1"/>
+        <gmr:monochrome value="0"/>
+        <gmr:draft value="0"/>
+        <gmr:titles value="0"/>
+        <gmr:repeat_top value=""/>
+        <gmr:repeat_left value=""/>
+        <gmr:order>r_then_d</gmr:order>
+        <gmr:orientation>landscape</gmr:orientation>
+        <gmr:Header Left="" Middle="&amp;[TAB]" Right=""/>
+        <gmr:Footer Left="" Middle="Page &amp;[PAGE]" Right=""/>
+        <gmr:paper>A4</gmr:paper>
+      </gmr:PrintInformation>
+      <gmr:Styles>
+        <gmr:StyleRegion startCol="0" startRow="0" endCol="255" endRow="65535">
+          <gmr:Style HAlign="1" VAlign="2" WrapText="0" Orient="1" Shade="0" Indent="0" Fore="0:0:0" Back="FFFF:FFFF:FFFF" PatternColor="0:0:0" Format="General">
+            <gmr:Font Unit="9" Bold="0" Italic="0" Underline="0" StrikeThrough="0">Helvetica</gmr:Font>
+            <gmr:StyleBorder>
+              <gmr:Top Style="0"/>
+              <gmr:Bottom Style="0"/>
+              <gmr:Left Style="0"/>
+              <gmr:Right Style="0"/>
+              <gmr:Diagonal Style="0"/>
+              <gmr:Rev-Diagonal Style="0"/>
+            </gmr:StyleBorder>
+          </gmr:Style>
+        </gmr:StyleRegion>
+      </gmr:Styles>
+      <gmr:Cols DefaultSizePts="48">
+        <gmr:ColInfo No="0" Unit="48" MarginA="2" MarginB="2" HardSize="0" Hidden="0" Count="9"/>
+      </gmr:Cols>
+      <gmr:Rows DefaultSizePts="12.8">
+        <gmr:RowInfo No="0" Unit="12.8" MarginA="1" MarginB="0" HardSize="0" Hidden="0" Count="10"/>
+      </gmr:Rows>
+      <gmr:Selections CursorCol="0" CursorRow="0">
+        <gmr:Selection startCol="0" startRow="0" endCol="0" endRow="0"/>
+      </gmr:Selections>
+      <gmr:Cells>
+        <gmr:Cell Col="2" Row="0" ValueType="60">
+          <gmr:Content>Result of regression</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="0" Row="1" ValueType="60">
+          <gmr:Content>Residuals</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="7" Row="1" ValueType="60">
+          <gmr:Content>Multiple R-squared</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="8" Row="1" ValueType="40">
+          <gmr:Content>0.83022739332941</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="0" Row="2" ValueType="60">
+          <gmr:Content>Min.</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="2" ValueType="60">
+          <gmr:Content>1st Qu.</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="2" Row="2" ValueType="60">
+          <gmr:Content>Median</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="3" Row="2" ValueType="60">
+          <gmr:Content>Mean</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="4" Row="2" ValueType="60">
+          <gmr:Content>3rd Qu.</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="5" Row="2" ValueType="60">
+          <gmr:Content>Max.</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="7" Row="2" ValueType="60">
+          <gmr:Content>Adjusted R-squared</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="8" Row="2" ValueType="40">
+          <gmr:Content>0.818518937696955</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="0" Row="3" ValueType="40">
+          <gmr:Content>-4.289</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="3" ValueType="40">
+          <gmr:Content>-1.551</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="2" Row="3" ValueType="40">
+          <gmr:Content>-0.4684</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="3" Row="3" ValueType="40">
+          <gmr:Content>2.299e-17</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="4" Row="3" ValueType="40">
+          <gmr:Content>1.574</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="5" Row="3" ValueType="40">
+          <gmr:Content>6.1</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="7" Row="4" ValueType="60">
+          <gmr:Content>F-statistic</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="8" Row="4" ValueType="40">
+          <gmr:Content>70.9083605380127</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="0" Row="5" ValueType="60">
+          <gmr:Content>Coefficients</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="7" Row="5" ValueType="60">
+          <gmr:Content>degrees of freedom</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="8" Row="5" ValueType="30">
+          <gmr:Content>3</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="9" Row="5" ValueType="30">
+          <gmr:Content>29</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="6" ValueType="60">
+          <gmr:Content>Estimate</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="2" Row="6" ValueType="60">
+          <gmr:Content>Std. Error</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="3" Row="6" ValueType="60">
+          <gmr:Content>t value</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="4" Row="6" ValueType="60">
+          <gmr:Content>Pr(&gt;|t|)</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="0" Row="7" ValueType="60">
+          <gmr:Content>(Intercept)</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="7" ValueType="40">
+          <gmr:Content>39.686261480253</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="2" Row="7" ValueType="40">
+          <gmr:Content>1.71498401162095</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="3" Row="7" ValueType="40">
+          <gmr:Content>23.1408929828697</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="4" Row="7" ValueType="40">
+          <gmr:Content>0</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="0" Row="8" ValueType="60">
+          <gmr:Content>wt</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="8" ValueType="40">
+          <gmr:Content>-3.19097213898375</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="2" Row="8" ValueType="40">
+          <gmr:Content>0.756906491950393</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="3" Row="8" ValueType="40">
+          <gmr:Content>-4.21580759700087</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="4" Row="8" ValueType="40">
+          <gmr:Content>0.000222020049516214</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="0" Row="9" ValueType="60">
+          <gmr:Content>cyl</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="9" ValueType="40">
+          <gmr:Content>-1.5077949682598</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="2" Row="9" ValueType="40">
+          <gmr:Content>0.414688288236113</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="3" Row="9" ValueType="40">
+          <gmr:Content>-3.63597191199501</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="4" Row="9" ValueType="40">
+          <gmr:Content>0.00106428178479501</gmr:Content>
+        </gmr:Cell>
+      </gmr:Cells>
+      <gmr:Solver TargetCol="-1" TargetRow="-1" ProblemType="1" Inputs=""/>
+    </gmr:Sheet>
+  </gmr:Sheets>
+  <gmr:UIData SelectedTab="1"/>
+</gmr:Workbook>

@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4"
+>
+<shelp:name>
+getGnumericSheet
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+getGnumericSheet
+</shelp:alias>
+<shelp:alias>
+getGnumericSheet.default
+</shelp:alias>
+<shelp:alias>
+getGnumericSheet.GnumericCellRef
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Obtain a reference to a Gnumeric worksheet
+</shelp:title>
+
+
+<shelp:description>
+
+This obtains a reference to a Gnumeric worksheet associated with the
+object the call provides. 
+This is convenient when the
+<shelp:class>GnumericSheetRef</shelp:class>
+is not passed to a function 
+but must be derived from one of the arguments.
+<p/>
+Different methods might be available for
+different types of inputs. Currently,
+the only type supported is a
+<shelp:class>GnumericCellRef</shelp:class>
+usually obtained using
+the <s:operator>[[</s:operator>
+applied to the original
+sheet reference
+(<s:expression>.sheet[[i,j]]</s:expression>)
+
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="getGnumericSheet">
+<shelp:sname>
+getGnumericSheet
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+<shelp:usage name="getGnumericSheet.default">
+<shelp:sname>
+getGnumericSheet.default
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+<shelp:usage name="getGnumericSheet.GnumericCellRef">
+<shelp:sname>
+getGnumericSheet.GnumericCellRef
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:usedIn>
+getGnumericSheet
+</shelp:usedIn>
+<shelp:usedIn>
+getGnumericSheet.default
+</shelp:usedIn>
+<shelp:usedIn>
+getGnumericSheet.GnumericCellRef
+</shelp:usedIn>
+<shelp:argName>
+x
+</shelp:argName>
+<shelp:argDescription>
+The object from which to compute the
+associated <shelp:class>GnumericSheetRef</shelp:class>
+reference.
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+
+
+<shelp:value>
+
+An object of class <shelp:class>GnumericSheetRef</shelp:class> which
+contains the C-level address of the internal Gnumeric worksheet.
+
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:functionRef>[[.GnumericSheetRef</shelp:functionRef>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:first>
+	<!-- code run before the example to initialize variables, etc. -->
+</shelp:first>
+<shelp:code>
+	<!-- the actual code for the example -->
+</shelp:code>
+<shelp:output>
+	<!-- expected output -->
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

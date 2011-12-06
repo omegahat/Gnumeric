@@ -1,0 +1,146 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4">
+<shelp:name>
+getGnumericWorkbook
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+getGnumericWorkbook
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Get parent Workbook of a Sheet.
+</shelp:title>
+
+
+<shelp:description>
+This function retrieves a reference to the
+Workbook in which the sheet is contained. This
+can be used to create new sheets and access others
+in the workbook.
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage>
+<shelp:sname>
+getGnumericWorkbook
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+.sheet
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:argName>
+.sheet
+</shelp:argName>
+<shelp:argDescription>
+
+The Gnumeric sheet object of class
+ <s:class>GnumericSheetRef</s:class>.  This is usually available as an
+ argument to the S function invoked by the Gnumeric sheet.
+
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+This accesses the internal structure of
+the Sheet instance and computes the parent
+workbook. 
+</shelp:details>
+
+
+<shelp:value>
+
+ An object of class <s:class>GnumericWorkbookRef</s:class>.  This is
+the value of an internal C pointer.  It should not be stored across
+function invocations from Gnumeric and certainly not saved across R
+sessions.
+
+</shelp:value>
+
+
+<shelp:references>
+<url>http://www.gnome.org/projects/gnumeric/</url>
+<url>http://www.omegahat.org/SGnumeric</url>
+</shelp:references>
+
+<shelp:authors>
+<shelp:author>
+<name>Duncan Temple Lang</name>
+<email>duncan@research.bell-labs.com</email>
+<url>http://cm.bell-labs.com/stat/duncan</url>
+</shelp:author>
+</shelp:authors>
+
+<shelp:note>
+ The <s:argRef>.sheet</s:argRef> object is a reference
+to an internal C-level structure. It should not be stored
+across invocations from Gnumeric.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:sref>length.GnumericWorkbookRef</shelp:sref>
+<shelp:sref>[.GnumericWorkbookRef</shelp:sref>
+<shelp:sref>names.GnumericWorkbookRef</shelp:sref>
+<shelp:sref>uniqueSheetName</shelp:sref>
+<shelp:sref>recalcBook</shelp:sref>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+We might use this for removing a sheet each time 
+</shelp:documentation>
+<shelp:first>
+	<!-- code run before the example to initialize variables, etc. -->
+</shelp:first>
+<shelp:code>
+<![CDATA[
+gnumeric.registerFunction(function(.sheet){ 
+                           w <- getGnumericWorkbook(.sheet)
+                           if(w["output"])
+                                removeSheet(w["output"])
+                           T
+                          }, "removeSheet", "", "", "check removal of a sheet")
+]]>
+</shelp:code>
+<shelp:output>
+	<!-- expected output -->
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+spreadsheet
+</shelp:keyword>
+<shelp:keyword>
+inter-system interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

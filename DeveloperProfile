@@ -1,0 +1,7 @@
+.DeveloperProfile <-  list(
+   references=c("<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>",
+                "<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>"),
+   author="<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>",
+   note="The interface is highly experimental. The basic mechanism is reasonably solid.",
+   keywords=c("interface"),
+)

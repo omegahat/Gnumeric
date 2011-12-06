@@ -1,0 +1,172 @@
+AC_INIT(src/RGnumeric.c)
+
+AC_PROG_CC
+
+DEFS=-DHAVE_CONFIG_H
+AC_SUBST(DEFS)
+
+dnl check for gtk-config.
+dnl Find gnumeric header files (func.h).
+dnl Find gnumeric plugin directory.
+
+AC_ARG_WITH(gnumeric,[--with-gnumeric  directory containing the gnumeric source.], GNUMERIC_DIR=${with_gnumeric})
+
+AC_PATH_PROG(GTK_CONFIG,gtk-config)
+AC_PATH_PROG(GNOME_CONFIG,gnome-config)
+AC_PATH_PROG(GDK_PIXBUF_CONFIG,gdk-pixbuf-config)
+
+if test -z "${GNUMERIC_DIR}" ; then
+ echo "You must specify where the gnumeric source distribution is located on your machine."
+ echo "Give the directory via the --with-gnumeric argument or the environment variable"
+ echo "GNUMERIC_DIR"
+ exit 1
+fi
+
+if test ! -r ${R_HOME}/bin/libR.so ; then
+  echo "To install the R-Gnumeric plugin, you must have R compiled as a shared library"
+  echo "Reconfigure and compile the R distribution to create R_HOME/bin/libR.so"
+  echo "Use the commands"
+  echo "\tconfigure --enable-R-shlib ..."
+  echo "\tmake"
+  exit 1
+fi
+
+if test ! -r ${R_HOME}/src/include/Defn.h ; then
+ echo "Currently, this plugin requires access to internal facilities in R that are not in the API."
+ echo "This requires that the source code for the R distribution is available to compile"
+ echo "this plugin, specifically the include file R_HOME/src/include/Defn.h"
+ echo "Please download the R source, build the shared library and install using that version of R"
+ exit 2
+fi
+
+# We can find this ourselves using gnome-config --cflags gnome
+# and then trying to compile a simple file #include <gnomesupport.h>
+
+
+if test -z "${EXTRA_INCLUDES}" ; then
+
+ if test -n ${GNOME_CONFIG} ; then
+  OLD_CPPFLAGS=${CPPFLAGS}
+  CPPFLAGS=`${GNOME_CONFIG} --cflags gnome`
+  AC_TRY_COMPILE([#include <gnomesupport.h>],[], [echo "Found gnomesupport.h using $CPPFLAGS" ; EXTRA_INCLUDES="${CPPFLAGS}"; CPPFLAGS=$OLD_CPPFLAGS],[ echo "Couldn't find gnomesupport.h"; exit 1])
+ else  
+   if test -r /usr/local/lib/gnome-libs/include/gnomesupport.h ;  then
+     EXTRA_INCLUDES=-I/usr/local/lib/gnome-libs/include/
+   else
+     echo "Don't know where to find gnomesupport.h. Please specify the directory in which it is contained"
+     echo "by setting the environment variable EXTRA_INCLUDES to the name of that directory"
+     EXTRA_INCLUDES=""
+     exit 1;
+   fi
+ fi
+
+fi
+
+if test -n ${GDK_PIXBUF_CONFIG} ; then
+  EXTRA_INCLUDES="${EXTRA_INCLUDES} `${GDK_PIXBUF_CONFIG} --cflags`"
+fi
+
+CPPFLAGS="${CPPFLAGS} -I. -I${GNUMERIC_DIR}/src -I${GNUMERIC_DIR} `${GTK_CONFIG} --cflags` ${EXTRA_INCLUDES}"
+
+dnl EXTENT_SPANS_AND_MERGE
+AC_TRY_COMPILE([#include "sheet.h"],[ sheet_get_extent((Sheet*)NULL, 1);],
+                  DEFINES="$DEFINES -DEXTENT_SPANS_AND_MERGE=1", echo "No extra argument for sheet_get_extent")
+
+AC_TRY_COMPILE([#include "sheet.h"],[ sheet_make_cell_visible((Sheet*)NULL, 1, 1, (gboolean) 1);],
+                  DEFINES="$DEFINES -DSHEET_SET_CELL_VISIBLE_WITH_PANES=1", echo "No extra argument for sheet_set_cell_visible")
+
+dnl RANGE_FOR_CURSOR_SET
+
+AC_TRY_COMPILE(
+[
+#include "sheet.h"
+],
+[
+  sheet_cursor_set((Sheet*)NULL, 0, 0, 0, 0, 0, 0, NULL);
+], DEFINES="$DEFINES -DRANGE_FOR_CURSOR_SET=1", echo "No extra argument for sheet_cursor_set")
+
+
+AC_TRY_COMPILE([#include "gnumeric-config.h"],[], DEFINES="$DEFINES -DHAVE_GNUMERIC_CONFIG_H", echo "No gnumeric-config.h file in Gnumeric source. Okay.")
+
+AC_PATH_PROG(GREP, grep)
+dnl EXPR_EVAL
+TMP=`${GREP} expr_eval ${GNUMERIC_DIR}/src/expr.h`
+if test -n "${TMP}" ; then
+  DEFINES="$DEFINES -DEXPR_EVAL=1"
+else
+ echo "No expr_eval()"
+fi
+
+TMP=`${GREP} value_peek_string ${GNUMERIC_DIR}/src/value.h`
+if test -n "${TMP}" ; then
+  DEFINES="$DEFINES -DHAVE_PEEK_STRING=1"
+else
+ echo "No expr_eval()"
+fi
+
+
+dnl FONT_WIDTH_POINTS
+
+TMP=`${GREP} style_font_get_width_pts ${GNUMERIC_DIR}/src/style.h`
+if test -n "${TMP}" ; then
+  DEFINES="$DEFINES -DFONT_WIDTH_POINTS=1"
+else
+ echo "No pts on font_get_width()"
+fi
+
+
+dnl Check GnumFileOpener is defined, otherwise need typedefs.
+AC_TRY_COMPILE(
+[
+#include "file.h" 
+],
+[
+ GnumFileOpener *f;
+], echo "Have GnumFileOpener", DEFINES="$DEFINES -DNEED_GNUMERIC_IO_DEFS")
+
+AC_PATH_PROG(GNUMERIC, gnumeric,,${GNUMERIC_DIR}/src:${PATH})
+
+GNUMERIC_VERSION=`${GNUMERIC} --version | sed -e 's/Gnome gnumeric //'`
+GNUMERIC_VERSION_STRING="\"$GNUMERIC_VERSION\""
+
+# If the installer has not specified the installation directory,
+# then put it in their home directory. This is 
+#   ~/.gnumeric/<version-number>/plugins
+# If that doesn't exist, make that directory now.
+# Currently assume the -p argument to mkdir.
+if test -z "${INSTALL_DIR}" ; then
+ INSTALL_DIR="${HOME}/.gnumeric/${GNUMERIC_VERSION}/plugins ${HOME}/.gnumeric/${GNUMERIC_VERSION}-bonobo/plugins"
+fi
+
+for f in ${INSTALL_DIR} ; do
+  if test ! -d ${f} ; then
+   mkdir -p ${f}
+  fi
+done
+
+TMP=`grep '<gnumeric_plugin_group>' ${GNUMERIC_DIR}/plugins/python/plugin.xml`
+if test -n "${TMP}"  ; then
+ PLUGIN_FILE="plugin.xml"
+else
+ PLUGIN_FILE="plugin-new.xml"
+fi
+
+AC_SUBST(PLUGIN_FILE)
+
+echo "INSTALL_DIR: \"${INSTALL_DIR}\""
+echo "R_PACKAGE_DIR: \"$R_PACKAGE_DIR\""
+
+AC_SUBST(R_PACKAGE_DIR)
+AC_SUBST(INSTALL_DIR)
+
+AC_SUBST(GTK_CONFIG)
+AC_SUBST(GNUMERIC_DIR)
+AC_SUBST(EXTRA_INCLUDES)
+
+AC_SUBST(DEFINES)
+
+AC_SUBST(GNUMERIC_VERSION_STRING)
+
+AC_OUTPUT(src/Makevars cleanup src/Rconfig.h)
+chmod +x cleanup
+

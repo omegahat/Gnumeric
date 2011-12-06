@@ -1,0 +1,158 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4"
+>
+<shelp:name>
+names.GnumericWorkbookRef
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+names.GnumericWorkbookRef
+</shelp:alias>
+<shelp:alias>
+length.GnumericWorkbookRef
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Query Gnumeric workbook contents
+</shelp:title>
+
+
+<shelp:description>
+These two functions allow one 
+to query the contents of the Gnumeric workbook,
+specifically the number and the names of the
+different sheets within the workbook.
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="names.GnumericWorkbookRef">
+<shelp:sname>
+names.GnumericWorkbookRef
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+<shelp:usage name="length.GnumericWorkbookRef">
+<shelp:sname>
+length.GnumericWorkbookRef
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:usedIn>
+names.GnumericWorkbookRef
+</shelp:usedIn>
+<shelp:usedIn>
+length.GnumericWorkbookRef
+</shelp:usedIn>
+<shelp:argName>
+x
+<shelp:argDescription>
+
+The reference to the Gnumeric workbook, which is an object of class
+<s:class>GnumericWorkbookRef</s:class>.
+
+</shelp:argDescription>
+</shelp:argName>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+These use the internal reference to the C-level
+workbook.
+</shelp:details>
+
+
+<shelp:value>
+<s:functionRef name="length.GnumericWorkbookRef"/>
+returns an integer giving the number of sheets
+in the workbook.
+
+<p/>
+<s:functionRef name="names.GnumericWorkbookRef"/>
+returns a character vector
+giving the names of the individual sheets.
+
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:functionRef package="base">names</shelp:functionRef>
+<shelp:functionRef>[[.GnumericWorkbookRef</shelp:functionRef>
+<shelp:functionRef>[.GnumericWorkbookRef</shelp:functionRef>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+This tests to see if there is already a sheet named
+<code>"foo"</code> and if so, obtains a reference to it.
+Otherwise, it creates and adds a new sheet to the workbook
+with that name.
+</shelp:documentation>
+<shelp:code>
+<![CDATA[
+ function(.sheet) 
+  book <- getNumericWorkbook(.sheet)
+  if(is.na(match("foo", names(book)))) {
+    sheet <- newSheet("foo", .sheet, FALSE)
+  } else
+    sheet <- book[["foo"]]
+]]>
+</shelp:code>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

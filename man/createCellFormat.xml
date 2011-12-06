@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4" 
+>
+
+<shelp:name>
+createCellFormat
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+createCellFormat
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Create virtual cell format information.
+</shelp:title>
+
+
+<shelp:description>
+
+This is intended to create an object similar to that returned from
+<s:functionRef>getCellFormat</s:functionRef> to represent format
+information for a Gnumeric cell.
+
+<p/>
+
+This is not intended for use quite yet.  Instead, one can retrieve the
+format settings of a cell using
+<s:functionRef>getCellFormat</s:functionRef> and then modify the
+resulting object.  Also, one can retrieve and set the format
+specifications from a cell using the
+<s:functionRef>$.GnumericCellRef</s:functionRef> operators.  The
+latter is the more <i>"tested"</i> way to do this.
+
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="createCellFormat">
+<shelp:sname>
+createCellFormat
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+...
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+format
+</shelp:argName>
+<shelp:defaultValue>
+NULL
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+verify
+</shelp:argName>
+<shelp:defaultValue>
+F
+</shelp:defaultValue>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:argName>
+...
+</shelp:argName>
+<shelp:argDescription>
+a collection of name-value
+pairs which are collected 
+into the new object to define
+its contents.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+format
+</shelp:argName>
+<shelp:argDescription>
+an existing format object whose
+values are to be taken as defaults
+if no corresponding attribute
+is specified in the
+<s:argRef name="..." />
+argument.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+verify
+</shelp:argName>
+<shelp:argDescription>
+ a logical value indicating whether 
+the names of the elements in the
+are to be checked against the known 
+names of supported attributes.
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+ This is implemented entirely
+within S. One should use
+<s:functionRef>getCellFormat</s:functionRef>
+instead to get the structure from 
+the C code and Gnumeric directly.
+</shelp:details>
+
+
+<shelp:value>
+A list containing the elements in <s:argRef name="..." /> and those in
+<s:argRef name="format" />, if specified.
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:sref>
+</shelp:sref>
+<a href="">
+</a>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:code>
+	<!-- the actual code for the example -->
+</shelp:code>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

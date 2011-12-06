@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<gnumeric_plugin_group>
+<plugin id="Gnumeric_R">
+       <information name="R Plugin" description="This plugin provides access to R functions and the R language in Gnumeric"/>
+        <loader type="g_module">
+              <attribute name="module_file" value="RGnumeric.so" />
+        </loader>
+        <services>
+             <service type="general"></service>
+             <service type="file_saver" id="R" file_extension="rgn"
+		  format_level="auto">
+                <information description="Gnumeric XML file with R functions (*.rgn)" />
+             </service>
+             <service type="file_opener" id="R" priority="100" probe="FALSE">
+                <information description="Gnumeric XML file with R functions (*.rgn)" />
+                <file_patterns>
+                     <file_pattern type="shell_pattern" value="*.rgn" />
+                </file_patterns>
+             </service>
+        </services>
+</plugin>
+</gnumeric_plugin_group>

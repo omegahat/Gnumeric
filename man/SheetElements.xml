@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4"
+>
+<shelp:name>
+"[.GnumericSheetRef"
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+"[.GnumericSheetRef"
+</shelp:alias>
+<shelp:alias>
+"[[.GnumericSheetRef"
+</shelp:alias>
+<shelp:alias>
+"[&lt;-.GnumericSheetRef"
+</shelp:alias>
+<shelp:alias>
+"[.GnumericWorkbookRef"
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Access values of one or more cells in a Gnumeric worksheet.
+</shelp:title>
+
+
+<shelp:description>
+
+These functions allow one to get or set the values of one or more
+cells in a Gnumeric worksheet using the usual subsetting and
+assignment operations in R.  These use the overloaded
+<shelp:sref>[</shelp:sref> and <shelp:sref>[&lt;-</shelp:sref>
+operator methods to provide direct access to the Gnumeric worksheet.
+ 
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="[.GnumericSheetRef">
+<shelp:sname>
+"[.GnumericSheetRef"
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+...
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+<shelp:usage name="[[.GnumericSheetRef">
+<shelp:sname>
+"[[.GnumericSheetRef"
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+i
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+j
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+<shelp:usage name="[&lt;-.GnumericSheetRef">
+<shelp:sname>
+"[&lt;-.GnumericSheetRef"
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+r
+</shelp:argName>
+<shelp:defaultValue>
+integer(0)
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+c
+</shelp:argName>
+<shelp:defaultValue>
+integer(0)
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+value
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+byrow
+</shelp:argName>
+<shelp:defaultValue>
+T
+</shelp:defaultValue>
+</shelp:arg>
+</shelp:usage>
+<shelp:usage name="[.GnumericWorkbookRef">
+<shelp:sname>
+"[.GnumericWorkbookRef"
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+...
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:usedIn>
+[.GnumericSheetRef
+</shelp:usedIn>
+<shelp:usedIn>
+[[.GnumericSheetRef
+</shelp:usedIn>
+<shelp:usedIn>
+[&lt;-.GnumericSheetRef
+</shelp:usedIn>
+<shelp:usedIn>
+[.GnumericWorkbookRef
+</shelp:usedIn>
+<shelp:argName>
+x
+</shelp:argName>
+<shelp:argDescription>
+The <s:class>GnumericSheetRef</s:class>
+object whose contents are to be accessed.
+This is usuall obtained as the 
+value of the <s:arg>.sheet</s:arg> argument of
+an R-Gnumeric function.
+
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+[.GnumericSheetRef
+</shelp:usedIn>
+<shelp:usedIn>
+[.GnumericWorkbookRef
+</shelp:usedIn>
+<shelp:argName>
+...
+</shelp:argName>
+<shelp:argDescription>
+identifiers specifying the
+cell or element in the workbook.
+In the case of a <s:class>GnumericWorkbookRef</s:class>,
+this identifies one or more worksheets
+by name or index.
+For <s:class>GnumericSheetRef</s:class>,
+these identify one or more cells in the same
+way that regions in a matrix are identified.
+
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+[[.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+i
+</shelp:argName>
+<shelp:argDescription>
+the index of the row
+which, along with the <shelp:argRef>j</shelp:argRef>,
+identifies a unique cell.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+[[.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+j
+</shelp:argName>
+<shelp:argDescription>
+the name or index of the column
+which, along with the <shelp:argRef>i</shelp:argRef>,
+identifies a unique cell.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+[&lt;-.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+r
+</shelp:argName>
+<shelp:argDescription>
+one or more row identifiers,
+specified as integers.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+[&lt;-.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+c
+</shelp:argName>
+<shelp:argDescription>
+one or more column identifiers,
+specified as integers or strings,
+which should be names of 
+the column headers.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+[&lt;-.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+value
+</shelp:argName>
+<shelp:argDescription>
+the value to assign to the
+one or more cells identified in
+the left-hand side of the assignment.
+If the value of this argument is a matrix,
+the values are assigned into the cells
+identified by the left-hand side
+or if that is a single cell, 
+into the region containing
+that cell as the top-left corner
+and extending to the dimensions
+of the right hand side.
+This tries to be similar to matrix
+assignment in regular S.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+[&lt;-.GnumericSheetRef
+</shelp:usedIn>
+<shelp:argName>
+byrow
+</shelp:argName>
+<shelp:argDescription>
+a logical value indicating whether
+the values are to be inserted
+row-wise or column-wise
+when multiple cells are involved
+in the assignment.
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+
+
+<shelp:value>
+The <s:operator>[</s:operator> operations
+return a scalar or a matrix 
+depending on how many cells are identified by
+the indices.
+In either case, the values are the contents of the
+specified cells.
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:sref>
+</shelp:sref>
+<a href="">
+</a>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:first>
+	<!-- code run before the example to initialize variables, etc. -->
+</shelp:first>
+<shelp:code>
+	<!-- the actual code for the example -->
+</shelp:code>
+<shelp:output>
+	<!-- expected output -->
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/tmp/RSHelp/data/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4" 
+>
+<shelp:name>
+gnumeric.hasSheetArgument
+</shelp:name>
+<shelp:package>RGnumeric</shelp:package>
+
+<shelp:aliases>
+<shelp:alias>
+gnumeric.hasSheetArgument
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Checks if the function expects a <s:argRef>.sheet</s:argRef> argument.
+</shelp:title>
+
+
+<shelp:description>
+
+This checks whether the specified function has a parameter named
+<s:name>.sheet</s:name>.  This is used internally when creating the
+call from Gnumeric to the S function.
+
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="gnumeric.hasSheetArgument">
+<shelp:sname>
+gnumeric.hasSheetArgument
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+func
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:argName>
+func
+<shelp:argDescription>
+
+The function object whose argument list is to be checked for the name
+<s:name>.sheet</s:name>.  This is not the name of the function, but
+the function object itself. It is retrieved internally by the internal
+code that effects the interface from Gnumeric to S.
+
+</shelp:argDescription>
+</shelp:argName>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+ This is used  internally and is only documented
+here so that others  might make use of it in generating
+interfaces programmatically.
+</shelp:details>
+
+
+<shelp:value>
+
+A logical value indicating whether the list of parameters contains a
+named element <s:name>.sheet</s:name>.
+
+</shelp:value>
+
+
+<shelp:references>
+<url>http://www.omegahat.org/SGnumeric</url>
+<url>http://www.omegahat.org/SGnumeric</url>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<name>Duncan Temple Lang</name>
+<email>duncan@research.bell-labs.com</email>
+<url>http://cm.bell-labs.com/stat/duncan</url>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:sref>gnumeric.registerFunction</shelp:sref>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:first>
+	<!-- code run before the example to initialize variables, etc. -->
+</shelp:first>
+<shelp:code>
+	<!-- the actual code for the example -->
+</shelp:code>
+<shelp:output>
+	<!-- expected output -->
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+spreadsheet
+</shelp:keyword>
+<shelp:keyword>
+inter-system interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

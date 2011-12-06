@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4"
+>
+<shelp:name>
+insertMatrix
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+insertMatrix
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Display the contents of a matrix in a Gnumeric worksheet.
+</shelp:title>
+
+
+<shelp:description>
+This populates a range of cells in a Gnumeric
+worksheet with the values from an R matrix.
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="insertMatrix">
+<shelp:sname>
+insertMatrix
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+m
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+.sheet
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+start
+</shelp:argName>
+<shelp:defaultValue>
+c(1, 1)
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+end
+</shelp:argName>
+<shelp:defaultValue>
+NULL
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+headers
+</shelp:argName>
+<shelp:defaultValue>
+T
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+rowNames
+</shelp:argName>
+<shelp:defaultValue>
+T
+</shelp:defaultValue>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:argName>
+m
+</shelp:argName>
+<shelp:argDescription>
+The R matrix whose values are to be displayed in the Gnumeric
+worksheet.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+.sheet
+</shelp:argName>
+<shelp:argDescription>
+The Gnumeric worksheet into which the values of the matrix are
+to be added.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+start
+</shelp:argName>
+<shelp:argDescription>
+The location of the cell giving the top-left row and column into which
+the values are to be inserted.
+This is a vector of length 2.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+end
+<shelp:argDescription>
+ignored
+</shelp:argDescription>
+</shelp:argName>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+headers
+</shelp:argName>
+<shelp:argDescription>
+A logical value indicating whether to also display
+the column names when showing the matrix.
+These will be inserted above the 
+columns of the matrix values in the starting 
+row.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+rowNames
+</shelp:argName>
+<shelp:argDescription>
+a logical value indicating whether to 
+also display the names of the rows
+in the matrix. If this is <s:TRUE/>,
+the values will be displayed on the left
+of the matrix in the first column specified
+by <shelp:argRef name="start" />.
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+This uses the overloaded 
+<shelp:sref href="">[</shelp:sref>
+method for the
+<shelp:sclass>GnumericSheetRef</shelp:sclass> class.
+</shelp:details>
+
+
+<shelp:value>
+The same as the return value from
+<shelp:sref>[</shelp:sref>.
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:sref>[</shelp:sref>
+<a href="">
+</a>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+
+This illustrates the two ways to insert a matrix into the
+
+</shelp:documentation>
+<shelp:code>
+<![CDATA[
+	x <- matrix(rnorm(50), 10, 5)
+        .sheet[3, 2] <- x
+        insertMatrix(x, .sheet, c(3,2))
+]]>
+</shelp:code>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

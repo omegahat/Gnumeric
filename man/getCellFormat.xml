@@ -1,0 +1,421 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4" 
+       xmlns:rs="http://www.omegahat.org/RSXML"
+       xmlns:javascript="http://www.javascript.org"
+>
+
+<shelp:name>
+getCellFormat
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+getCellFormat
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Retrieve format information from a workseet cell.
+</shelp:title>
+
+
+<shelp:description>
+This function returns an object representing information about the
+formatting and appearance characteristics of a Gnumeric worksheet
+cell.  This includes information about the foreground and background
+colors; font family, size and style; horizontal and vertical
+alignment; border settings; etc.  This can then be used to modify and
+reset values and/or used to format other cells in a similar manner.
+The function <s:functionRef>getCellFormat</s:functionRef> retrieves
+the setting from an actual cell and is preferred to
+<s:functionRef>createCellFormat</s:functionRef>
+which is purely S-based code.
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="getCellFormat">
+<shelp:sname>
+getCellFormat
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+row
+</shelp:argName>
+<shelp:defaultValue>
+1
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+column
+</shelp:argName>
+<shelp:defaultValue>
+1
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+.sheet
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:argName>
+row
+</shelp:argName>
+<shelp:argDescription>
+the index of the row in which the
+cell of interest is located.
+This is used with the <s:argRef>column</s:argRef>
+argument to identify the cell.
+This is a 1-based value, i.e. the first row is
+1.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+column
+</shelp:argName>
+<shelp:argDescription>
+the index of the column in which the
+cell of interest is located.
+This is used with the <s:argRef>row</s:argRef>
+argument to identify the cell.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+.sheet
+</shelp:argName>
+<shelp:argDescription>
+The <s:class>GnumericSheetRef</s:class>
+instance in which to resolve the row and column
+index to get the cell and extract its format information.
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+This copies the formatting information
+from the cell into an S object which is then
+unrelated to that cell. In other words,
+changes to that object will not affect the cell.
+</shelp:details>
+
+
+<shelp:value>
+A list with 9 elements
+<description>
+  <item><label>border</label>
+   A named list containing the settings for the
+   top, bottom, left, right, revDiagonal and diagonal
+   attributes controlling the border appearance of the cell.
+   Each element is itself a list of length 3.
+   Its elements are lineType, margin and color.
+   lineType is a simple integer value.
+   margin is a named integer vector giving the
+   begin, end and width attributes of the border.
+   Finally, color gives the color of the border, both
+   background and foreground.
+  </item>  
+  <item><label>color</label>
+  A list containing the background, foreground and pattern color settings
+  for the cell. A color is given in RGB form.
+  It is a list containing 3 components - the name, the the red, green
+  and blue (RGB) values for that color, and the index in the colormap.
+  </item>  
+  <item><label>pattern</label>
+   a simple integer 
+  </item>  
+  <item><label>font</label>
+    the name and dimensions of the font currently in use for that
+   cell.
+    The dimensions are given as the width and height, presumably
+    in points.
+  </item>  
+  <item><label>styles</label>
+   a logical vector giving information about the font.
+   The elements indicate whether the cell is
+    bold, italic, underlined or strikethrough.
+  </item>  
+  <item><label>format</label>
+    the a string describing the data format, such as date, currency,
+   etc.
+    For certain formats this is  a string giving the format of the default value,
+    e.g. 0. For example, for currency cells this is "$0.00".
+    For times, we get the more symbolic form for the particular
+   format, something like "m/d/yy h:mm".
+
+  </item>  
+  <item><label>wrap</label>
+   logical value indicating whether line wrapping
+   is active for this cell for long lines of text.
+  </item>  
+  <item><label>align</label>
+   an integer vector of length 2 giving the
+   horizontal and vertical alignment settings
+  </item>  
+  <item><label>indent</label>
+    an integer vector giving the indentation
+  </item>  
+
+</description>
+
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+<shelp:notes>
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+</shelp:notes>
+
+<shelp:seeAlso>
+<shelp:sref>
+</shelp:sref>
+<a href="">
+</a>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1" run="FALSE">
+<shelp:documentation>
+	This illustrates the output from the
+<s:functionRef>getCellFormat</s:functionRef>.
+This must be run from within Gnumeric
+and so cannot be executed in the traditional R session.
+</shelp:documentation>
+<shelp:code>
+ getCellFormat(2,1, .sheet=.sheet)
+</shelp:code>
+<shelp:output>
+<verb>
+<![CDATA[
+$border
+$border$top
+$border$top$lineType
+[1] 0
+
+$border$top$margin
+begin   end width
+    0     0     0
+
+$border$top$color
+$border$top$color$name
+[1] ""
+
+$border$top$color$rgb
+[1] 51143 51143 51143
+
+$border$top$color$index
+NULL
+
+
+
+$border$bottom
+$border$bottom$lineType
+[1] 0
+
+$border$bottom$margin
+begin   end width
+    0     0     0
+
+$border$bottom$color
+$border$bottom$color$name
+[1] ""
+
+$border$bottom$color$rgb
+[1] 51143 51143 51143
+
+$border$bottom$color$index
+NULL
+
+
+
+$border$left
+$border$left$lineType
+[1] 0
+
+$border$left$margin
+begin   end width
+    0     0     0
+
+$border$left$color
+$border$left$color$name
+[1] ""
+
+$border$left$color$rgb
+[1] 51143 51143 51143
+
+$border$left$color$index
+NULL
+
+
+
+$border$right
+$border$right$lineType
+[1] 0
+
+$border$right$margin
+begin   end width
+    0     0     0
+
+$border$right$color
+$border$right$color$name
+[1] ""
+
+$border$right$color$rgb
+[1] 51143 51143 51143
+
+$border$right$color$index
+NULL
+
+
+
+$border$revDiagonal
+$border$revDiagonal$lineType
+[1] 0
+
+$border$revDiagonal$margin
+begin   end width
+    0     0     0
+
+$border$revDiagonal$color
+$border$revDiagonal$color$name
+[1] ""
+
+$border$revDiagonal$color$rgb
+[1] 51143 51143 51143
+
+$border$revDiagonal$color$index
+NULL
+
+
+
+$border$diagonal
+$border$diagonal$lineType
+[1] 0
+
+$border$diagonal$margin
+begin   end width
+    0     0     0
+
+$border$diagonal$color
+$border$diagonal$color$name
+[1] ""
+
+$border$diagonal$color$rgb
+[1] 51143 51143 51143
+
+$border$diagonal$color$index
+NULL
+
+
+
+
+$color
+$color$foreground
+$color$foreground$name
+[1] ""
+
+$color$foreground$rgb
+[1]     0 65535     0
+
+$color$foreground$index
+NULL
+
+
+$color$background
+$color$background$name
+[1] ""
+
+$color$background$rgb
+[1] 65535 65535 65535
+
+$color$background$index
+NULL
+ 
+ 
+$color$pattern
+$color$pattern$name
+[1] ""
+ 
+$color$pattern$rgb
+[1] 0 0 0
+ 
+$color$pattern$index
+NULL
+ 
+ 
+ 
+$pattern
+[1] 0
+ 
+$font
+$font$name
+[1] "Helvetica"
+ 
+$font$dimensions
+ width height
+     5     10
+ 
+ 
+$styles
+     bold    italic underline    strike
+    FALSE     FALSE     FALSE     FALSE
+ 
+$format
+[1] ""
+ 
+$wrap
+[1] FALSE
+ 
+$align
+horizontal   vertical
+         1          2
+ 
+$indent
+[1] 0     
+]]>
+</verb>
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>interface</shelp:keyword>
+</shelp:keywords>
+
+</Shelp>

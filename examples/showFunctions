@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<gmr:Workbook xmlns:gmr="http://www.gnome.org/gnumeric/v6">
+  <gmr:Attributes>
+    <gmr:Attribute>
+      <gmr:name>WorkbookView::show_horizontal_scrollbar</gmr:name>
+      <gmr:type>4</gmr:type>
+      <gmr:value>TRUE</gmr:value>
+    </gmr:Attribute>
+    <gmr:Attribute>
+      <gmr:name>WorkbookView::show_vertical_scrollbar</gmr:name>
+      <gmr:type>4</gmr:type>
+      <gmr:value>TRUE</gmr:value>
+    </gmr:Attribute>
+    <gmr:Attribute>
+      <gmr:name>WorkbookView::show_notebook_tabs</gmr:name>
+      <gmr:type>4</gmr:type>
+      <gmr:value>TRUE</gmr:value>
+    </gmr:Attribute>
+  </gmr:Attributes>
+  <gmr:Summary>
+    <gmr:Item>
+      <gmr:name>application</gmr:name>
+      <gmr:val-string>gnumeric</gmr:val-string>
+    </gmr:Item>
+    <gmr:Item>
+      <gmr:name>author</gmr:name>
+      <gmr:val-string>Duncan Temple Lang</gmr:val-string>
+    </gmr:Item>
+  </gmr:Summary>
+  <gmr:Names/>
+  <gmr:Geometry Width="960" Height="421"/>
+  <gmr:Sheets>
+    <gmr:Sheet DisplayFormulas="false" HideZero="false" HideGrid="false" HideColHeader="false" HideRowHeader="false">
+      <gmr:Name>Sheet1</gmr:Name>
+      <gmr:MaxCol>1</gmr:MaxCol>
+      <gmr:MaxRow>21</gmr:MaxRow>
+      <gmr:Zoom>1.000000</gmr:Zoom>
+      <gmr:Names/>
+      <gmr:PrintInformation>
+        <gmr:Margins>
+          <gmr:top Points="28.3" PrefUnit="cm"/>
+          <gmr:bottom Points="28.3" PrefUnit="cm"/>
+          <gmr:left Points="28.3" PrefUnit="cm"/>
+          <gmr:right Points="28.3" PrefUnit="cm"/>
+          <gmr:header Points="14.2" PrefUnit="cm"/>
+          <gmr:footer Points="14.2" PrefUnit="cm"/>
+        </gmr:Margins>
+        <gmr:vcenter value="0"/>
+        <gmr:hcenter value="0"/>
+        <gmr:grid value="0"/>
+        <gmr:even_if_only_styles value="1"/>
+        <gmr:monochrome value="0"/>
+        <gmr:draft value="0"/>
+        <gmr:titles value="0"/>
+        <gmr:repeat_top value=""/>
+        <gmr:repeat_left value=""/>
+        <gmr:order>r_then_d</gmr:order>
+        <gmr:orientation>landscape</gmr:orientation>
+        <gmr:Header Left="" Middle="&amp;[TAB]" Right=""/>
+        <gmr:Footer Left="" Middle="Page &amp;[PAGE]" Right=""/>
+        <gmr:paper>A4</gmr:paper>
+      </gmr:PrintInformation>
+      <gmr:Styles>
+        <gmr:StyleRegion startCol="0" startRow="0" endCol="255" endRow="65535">
+          <gmr:Style HAlign="1" VAlign="2" WrapText="0" Orient="1" Shade="0" Indent="0" Fore="0:0:0" Back="FFFF:FFFF:FFFF" PatternColor="0:0:0" Format="General">
+            <gmr:Font Unit="9" Bold="0" Italic="0" Underline="0" StrikeThrough="0">Helvetica</gmr:Font>
+            <gmr:StyleBorder>
+              <gmr:Top Style="0"/>
+              <gmr:Bottom Style="0"/>
+              <gmr:Left Style="0"/>
+              <gmr:Right Style="0"/>
+              <gmr:Diagonal Style="0"/>
+              <gmr:Rev-Diagonal Style="0"/>
+            </gmr:StyleBorder>
+          </gmr:Style>
+        </gmr:StyleRegion>
+      </gmr:Styles>
+      <gmr:Cols DefaultSizePts="48">
+        <gmr:ColInfo No="0" Unit="97.5" MarginA="2" MarginB="2" HardSize="-1" Hidden="0"/>
+        <gmr:ColInfo No="1" Unit="92.2" MarginA="2" MarginB="2" HardSize="-1" Hidden="0"/>
+      </gmr:Cols>
+      <gmr:Rows DefaultSizePts="12.8">
+        <gmr:RowInfo No="0" Unit="12.8" MarginA="1" MarginB="0" HardSize="0" Hidden="0" Count="22"/>
+      </gmr:Rows>
+      <gmr:Selections CursorCol="0" CursorRow="0">
+        <gmr:Selection startCol="0" startRow="0" endCol="0" endRow="0"/>
+      </gmr:Selections>
+      <gmr:Cells>
+        <gmr:Cell Col="0" Row="0">
+          <gmr:Content>=showFunctions()</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="0" ValueType="60">
+          <gmr:Content>rbernoulli</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="1" ValueType="60">
+          <gmr:Content>rpois</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="2" ValueType="60">
+          <gmr:Content>reval</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="3" ValueType="60">
+          <gmr:Content>arrayRef</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="4" ValueType="60">
+          <gmr:Content>rangeRef</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="5" ValueType="60">
+          <gmr:Content>load</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="6" ValueType="60">
+          <gmr:Content>library</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="7" ValueType="60">
+          <gmr:Content>define</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="8" ValueType="60">
+          <gmr:Content>testSheet</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="9" ValueType="60">
+          <gmr:Content>testCell</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="10" ValueType="60">
+          <gmr:Content>newSheet</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="11" ValueType="60">
+          <gmr:Content>newBook</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="12" ValueType="60">
+          <gmr:Content>getRegion</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="13" ValueType="60">
+          <gmr:Content>checkSheetNames</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="14" ValueType="60">
+          <gmr:Content>workSheetAccess</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="15" ValueType="60">
+          <gmr:Content>removeSheet</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="16" ValueType="60">
+          <gmr:Content>cellRef</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="17" ValueType="60">
+          <gmr:Content>testSubset</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="18" ValueType="60">
+          <gmr:Content>lmResults</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="19" ValueType="60">
+          <gmr:Content>testFormat</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="20" ValueType="60">
+          <gmr:Content>newSheet</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="21" ValueType="60">
+          <gmr:Content>showFunctions</gmr:Content>
+        </gmr:Cell>
+      </gmr:Cells>
+      <gmr:Solver TargetCol="-1" TargetRow="-1" ProblemType="1" Inputs=""/>
+    </gmr:Sheet>
+  </gmr:Sheets>
+  <gmr:UIData SelectedTab="0"/>
+</gmr:Workbook>

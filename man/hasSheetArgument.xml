@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4" 
+>
+
+<shelp:name>
+gnumeric.hasSheetArgument
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+gnumeric.hasSheetArgument
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Determines if function expects <s:arg>.sheet</s:arg> argument.
+</shelp:title>
+
+
+<shelp:description>
+This is an internal function used by the C code to
+determine if the S function being called from Gnumeric
+expects a <s:arg>.sheet</s:arg> argument.
+If the definition of the function has an argument with
+this name, the current Gnumeric sheet from which the S
+function is being called is passed as the value of
+that argument.
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="gnumeric.hasSheetArgument">
+<shelp:sname>
+gnumeric.hasSheetArgument
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+func
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:argName>
+func
+</shelp:argName>
+<shelp:argDescription>
+The S function object that is about to be called from
+Gnumeric.
+and whose argument list is to be checked for the name
+<s:name>.sheet</s:name>.  This is not the name of the function, but
+the function object itself. It is retrieved internally by the internal
+code that effects the interface from Gnumeric to S.
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+This is used internally and is not if much interest
+to the user. This approach effectively makes <code>.sheet</code>
+a reserved word.
+</shelp:details>
+
+
+<shelp:value>
+A logical value indicating whether the list of parameters for this
+function contains a
+named element <s:name>.sheet</s:name> or not.
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<name>Duncan Temple Lang</name>
+<email>duncan@research.bell-labs.com</email>
+<url>http://cm.bell-labs.com/stat/duncan</url>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:sref>gnumeric.registerFunction</shelp:sref>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:first>
+	<!-- code run before the example to initialize variables, etc. -->
+</shelp:first>
+<shelp:code>
+	<!-- the actual code for the example -->
+</shelp:code>
+<shelp:output>
+	<!-- expected output -->
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+spreadsheet
+</shelp:keyword>
+<shelp:keyword>
+inter-system interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+
+
+</Shelp>

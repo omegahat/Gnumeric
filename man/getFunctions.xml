@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4" 
+>
+<shelp:name>
+gnumeric.getFunctions
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+gnumeric.getFunctions
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Query the S functions registered with Gnumeric.
+</shelp:title>
+
+
+<shelp:description>
+
+This returns all of the functions that are currently registered in the
+Gnumeric session from the R plugin.  This can be used to simply
+examine the available functions and also to programmatically determine
+if a function needs to be registered before using it
+in the value of a cell.
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="gnumeric.getFunctions">
+<shelp:sname>
+gnumeric.getFunctions
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+describe
+</shelp:argName>
+<shelp:defaultValue>
+F
+</shelp:defaultValue>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:argName>
+describe
+</shelp:argName>
+<shelp:argDescription>
+a logical value indicating whether
+a full (<s:true/>) or short (<s:false/>)
+description  should be returned for each 
+registered function.
+<p/>
+
+This is currently ignored and the brief description is assumed.  In
+the future, this full description will include information such as the
+argument types and descriptions and the help string passed in the call
+to <s:functionRef>gnumeric.registerFunction</s:functionRef>.
+
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+This queries the internal structures that store the
+registered functions.
+
+</shelp:details>
+
+
+<shelp:value>
+
+A list in which each element corresponds to an S function registered
+as a Gnumeric function.  The name of the list element is the name of
+the gnumeric function.  The value is the S function object that is
+used to implement that Gnumeric function.
+This is the first argument
+to <s:functionRef>gnumeric.registerFunction</s:functionRef>
+in the call to register the function with Gnumeric.
+
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:sref>
+</shelp:sref>
+<a href=""></a>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:first>
+	<!-- code run before the example to initialize variables, etc. -->
+</shelp:first>
+<shelp:code>
+	<!-- the actual code for the example -->
+</shelp:code>
+<shelp:output>
+	<!-- expected output -->
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

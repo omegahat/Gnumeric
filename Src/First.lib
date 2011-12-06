@@ -1,0 +1,13 @@
+.First.lib <-
+function(libname, pkgname)
+{
+ library.dynam("RGnumeric", pkgname, libname)
+
+ f <- function(name){ .Call("RGnumeric_editFunctions")}
+ environment(f) <- globalenv()
+ gnumeric.registerFunction(f,"edit",
+                             "|s","function","edit the table of R-Gnumeric functions") 
+
+ gnumeric.registerFunction(parseEval,"reval",
+                             "s","command","evaluate an R expression as a string") 
+}

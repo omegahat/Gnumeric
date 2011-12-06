@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title></title>
+</head>
+
+<body>
+
+<h1>Version 0.3-5</h1>
+
+<dl>
+  <dt> Removed references to R_GNUMERIC_PLUGIN variable.
+       Should have been R_GNUMERIC_PROFILE.
+  <dd>
+
+  <dt> Replaced the local <code>tryEval()</code> with calls to <code>R_tryEval()</code>.
+  <dd>
+</dl>
+
+<h1>Version 0.3-4</h1>
+<dl>
+  <dt> Install into users ~/.gnumeric directory in both regular and
+      bonobo sub-directories.
+      Can still specify the directory (or directories)
+      by setting INSTALL_DIR environment variable.
+  <dd>
+</dl>
+
+<h1>Version 0.3-3</h1>
+<dl>
+  <dt> Initialization of error variable in the plugin startup code.
+  <dd>
+</dl>
+
+<h1>Version 0.3-2</h1>
+
+<dl>
+  <dt> Configuration up-dates.
+  <dd> Still cannot determine with what flags gnumeric was compiled.
+</dl>
+
+<h1>Version 0.3-1</h1>
+
+<dl>
+  <dt> New format for plugin.xml 
+  <dd>
+  <dt> Simple fix for unconditional <code>UNPROTECT()</code>
+       in <code>RGnumeric_loadProfile()</code> if file doesn't exist.
+  <dd>
+</dl>
+<h1>Version 0.3</h1>
+
+<dl>
+  <dt> Support for Gnumeric-0.73
+  <dd>
+</dl>
+
+
+<hr>
+<address><a href="http://cm.bell-labs.com/stat/duncan">Duncan Temple Lang</a>
+<a href=mailto:duncan@research.bell-labs.com>&lt;duncan@research.bell-labs.com&gt;</a></address>
+<!-- hhmts start -->
+Last modified: Tue Apr  1 22:48:18 EST 2003
+<!-- hhmts end -->
+</body> </html>

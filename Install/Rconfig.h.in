@@ -1,0 +1,7 @@
+#ifndef RCONFIG_H
+#define RCONFIG_H
+ 
+#define GNUMERIC_VERSION_STRING @GNUMERIC_VERSION_STRING@
+
+ 
+#endif

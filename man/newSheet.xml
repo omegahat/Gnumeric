@@ -1,0 +1,166 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/tmp/RSHelp/data/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4" 
+>
+<shelp:name>
+newSheet
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+newSheet
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Create a new Gnumeric worksheet.
+</shelp:title>
+
+
+<shelp:description>
+This creates a new worksheet in the Gnumeric workbook
+identified by the sheet with which this function
+is called. It allows one to create new and
+separate output areas for displaying the
+results of S commands.
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage>
+<shelp:sname>
+newSheet
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+name
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+.sheet
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+checkName
+</shelp:argName>
+<shelp:defaultValue>
+T
+</shelp:defaultValue>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:argName>
+name
+</shelp:argName>
+<shelp:argDescription>
+The name to give the new sheet, 
+which is used in the tab panel and other places
+the sheet names are listed.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+.sheet
+</shelp:argName>
+<shelp:argDescription>
+The sheet from which the call to create the new sheet is being made.
+This identifies the workbook.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+checkName
+</shelp:argName>
+<shelp:argDescription>
+A logical value indicating whether
+the name for the sheet given in the call
+should be made automatically unique within the workbook
+(using <s:functionRef>uniqueSheetName</s:functionRef>)
+or left as is.
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+This creates a new sheet.
+</shelp:details>
+
+
+<shelp:value>
+An object of class <s:classRef>GnumericSheetRef</s:classRef> which is
+an opaque object that represents the new worksheet.  The contents of
+this object should not be used directly, but within calls to methods
+that access the object internally.
+</shelp:value>
+
+
+<shelp:references>
+<url>http://www.omegahat.org/SGnumeric</url>
+<url>http://www.gnome.org/projects/gnumeric/</url>
+</shelp:references>
+
+<shelp:authors>
+<shelp:author>
+<name>Duncan Temple Lang</name>
+<email>duncan@research.bell-labs.com</email>
+<url>http://cm.bell-labs.com/stat/duncan</url>
+</shelp:author>
+</shelp:authors>
+
+<shelp:note>
+
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:sref>names.GnumericWorkbookRef</shelp:sref>
+<shelp:sref>uniqueSheetName</shelp:sref>
+<shelp:sref>sheetDelete</shelp:sref>
+<shelp:sref>renameSheet</shelp:sref>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:first>
+	<!-- code run before the example to initialize variables, etc. -->
+</shelp:first>
+<shelp:code>
+	<!-- the actual code for the example -->
+</shelp:code>
+<shelp:output>
+	<!-- expected output -->
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+spreadsheet
+</shelp:keyword>
+<shelp:keyword>
+inter-system interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<gmr:Workbook xmlns:gmr="http://www.gnome.org/gnumeric/v6">
+  <gmr:Attributes>
+    <gmr:Attribute>
+      <gmr:name>WorkbookView::show_horizontal_scrollbar</gmr:name>
+      <gmr:type>4</gmr:type>
+      <gmr:value>TRUE</gmr:value>
+    </gmr:Attribute>
+    <gmr:Attribute>
+      <gmr:name>WorkbookView::show_vertical_scrollbar</gmr:name>
+      <gmr:type>4</gmr:type>
+      <gmr:value>TRUE</gmr:value>
+    </gmr:Attribute>
+    <gmr:Attribute>
+      <gmr:name>WorkbookView::show_notebook_tabs</gmr:name>
+      <gmr:type>4</gmr:type>
+      <gmr:value>TRUE</gmr:value>
+    </gmr:Attribute>
+  </gmr:Attributes>
+  <gmr:Summary>
+    <gmr:Item>
+      <gmr:name>application</gmr:name>
+      <gmr:val-string>gnumeric</gmr:val-string>
+    </gmr:Item>
+    <gmr:Item>
+      <gmr:name>author</gmr:name>
+      <gmr:val-string>Duncan Temple Lang</gmr:val-string>
+    </gmr:Item>
+  </gmr:Summary>
+  <gmr:Names/>
+  <gmr:Geometry Width="903" Height="347"/>
+  <gmr:Sheets>
+    <gmr:Sheet DisplayFormulas="false" HideZero="false" HideGrid="false" HideColHeader="false" HideRowHeader="false">
+      <gmr:Name>Sheet1</gmr:Name>
+      <gmr:MaxCol>2</gmr:MaxCol>
+      <gmr:MaxRow>3</gmr:MaxRow>
+      <gmr:Zoom>1.000000</gmr:Zoom>
+      <gmr:Names/>
+      <gmr:PrintInformation>
+        <gmr:Margins>
+          <gmr:top Points="28.3" PrefUnit="cm"/>
+          <gmr:bottom Points="28.3" PrefUnit="cm"/>
+          <gmr:left Points="28.3" PrefUnit="cm"/>
+          <gmr:right Points="28.3" PrefUnit="cm"/>
+          <gmr:header Points="14.2" PrefUnit="cm"/>
+          <gmr:footer Points="14.2" PrefUnit="cm"/>
+        </gmr:Margins>
+        <gmr:vcenter value="0"/>
+        <gmr:hcenter value="0"/>
+        <gmr:grid value="0"/>
+        <gmr:even_if_only_styles value="1"/>
+        <gmr:monochrome value="0"/>
+        <gmr:draft value="0"/>
+        <gmr:titles value="0"/>
+        <gmr:repeat_top value=""/>
+        <gmr:repeat_left value=""/>
+        <gmr:order>r_then_d</gmr:order>
+        <gmr:orientation>landscape</gmr:orientation>
+        <gmr:Header Left="" Middle="&amp;[TAB]" Right=""/>
+        <gmr:Footer Left="" Middle="Page &amp;[PAGE]" Right=""/>
+        <gmr:paper>A4</gmr:paper>
+      </gmr:PrintInformation>
+      <gmr:Styles>
+        <gmr:StyleRegion startCol="0" startRow="0" endCol="255" endRow="65535">
+          <gmr:Style HAlign="1" VAlign="2" WrapText="0" Orient="1" Shade="0" Indent="0" Fore="0:0:0" Back="FFFF:FFFF:FFFF" PatternColor="0:0:0" Format="General">
+            <gmr:Font Unit="9" Bold="0" Italic="0" Underline="0" StrikeThrough="0">Helvetica</gmr:Font>
+            <gmr:StyleBorder>
+              <gmr:Top Style="0"/>
+              <gmr:Bottom Style="0"/>
+              <gmr:Left Style="0"/>
+              <gmr:Right Style="0"/>
+              <gmr:Diagonal Style="0"/>
+              <gmr:Rev-Diagonal Style="0"/>
+            </gmr:StyleBorder>
+          </gmr:Style>
+        </gmr:StyleRegion>
+      </gmr:Styles>
+      <gmr:Cols DefaultSizePts="48">
+        <gmr:ColInfo No="0" Unit="48" MarginA="2" MarginB="2" HardSize="0" Hidden="0" Count="3"/>
+      </gmr:Cols>
+      <gmr:Rows DefaultSizePts="12.8">
+        <gmr:RowInfo No="0" Unit="12.8" MarginA="1" MarginB="0" HardSize="0" Hidden="0" Count="4"/>
+      </gmr:Rows>
+      <gmr:Selections CursorCol="2" CursorRow="1">
+        <gmr:Selection startCol="2" startRow="1" endCol="2" endRow="1"/>
+      </gmr:Selections>
+      <gmr:Cells>
+        <gmr:Cell Col="0" Row="0" ValueType="30">
+          <gmr:Content>1</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="0" ValueType="60">
+          <gmr:Content>a</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="2" Row="0">
+          <gmr:Content>=hist(A1:A4)</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="0" Row="1" ValueType="30">
+          <gmr:Content>2</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="1" ValueType="60">
+          <gmr:Content>b</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="0" Row="2" ValueType="30">
+          <gmr:Content>3</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="1" Row="2" ValueType="60">
+          <gmr:Content>c</gmr:Content>
+        </gmr:Cell>
+        <gmr:Cell Col="0" Row="3" ValueType="30">
+          <gmr:Content>4</gmr:Content>
+        </gmr:Cell>
+      </gmr:Cells>
+      <gmr:Solver TargetCol="-1" TargetRow="-1" ProblemType="1" Inputs=""/>
+    </gmr:Sheet>
+  </gmr:Sheets>
+  <gmr:UIData SelectedTab="0"/>
+<R:functions>
+ <R:function name="hist">
+  <R:description>Draws a histogram</R:description>
+  <R:arguments value="r" description="range of cells containing values">
+    <R:argument type="r">range of cells containing values</R:argument>
+  </R:arguments>
+  <R:definition>
+     <![CDATA[
+       function(r, .sheet) {
+         val <- getSheetRegion(r[[1]], r[[2]], .sheet)[[1]]
+         hist(val, main=paste("Histogram of", LETTERS[r[[1]][2]]))
+         T
+       }
+     ]]>
+  </R:definition>
+ </R:function>
+ <R:function name="foo">
+  <R:description>Test</R:description>
+  <R:arguments value="f" description="value" />
+  <R:definition>
+     <![CDATA[
+       function(val) {
+         gamma(val)
+       }
+     ]]>
+  </R:definition>
+ </R:function>
+ <R:function name="two">
+  <R:description>Testing two arguments</R:description>
+  <R:arguments value="ff" description="n,mean" />
+  <R:definition>
+     <![CDATA[
+       function(val, mu) {
+         mean(rnorm(val, mean = mu))
+       }
+     ]]>
+  </R:definition>
+ </R:function>
+ <R:function name="var1">
+  <R:description>Testing two arguments</R:description>
+  <R:arguments value="ff|sr" description="n,mean" />
+  <R:definition>
+     <![CDATA[
+       function(val, mu, str, cells) {
+if(!missing(str))
+  print(str)
+         mean(rnorm(val, mean = mu))
+       }
+     ]]>
+  </R:definition>
+ </R:function>
+</R:functions>
+</gmr:Workbook>

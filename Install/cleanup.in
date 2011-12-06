@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# Attempt to put the plugin.xml and a link to the RGnumeric.so
+# into the appropriate directory for Gnumeric to find it.
+
+R_PACKAGE_DIR=@R_PACKAGE_DIR@
+GNUMERIC_INSTALL_DIR="@INSTALL_DIR@"
+
+echo "Installing plugin: ${GNUMERIC_INSTALL_DIR}"
+
+for INSTALL_DIR in ${GNUMERIC_INSTALL_DIR} ; do
+
+if test -z "${INSTALL_DIR}" ; then
+ if test -n "$1" ; then
+   INSTALL_DIR="$1"
+ else
+   echo "The location of the install directory for the Gnumeric plugins"
+   echo "is not known. Please specify this with the environment variable"
+   echo "INSTALL_DIR, or as the only argument to `pwd`/cleanup"
+   exit 1
+ fi
+fi
+
+# Now check where we are in
+if test -d "${INSTALL_DIR}" ; then
+ if test -w "${INSTALL_DIR}" ; then
+   if test ! -d ${INSTALL_DIR}/R ; then
+      mkdir -p ${INSTALL_DIR}/R
+   fi 
+
+   cp @PLUGIN_FILE@ ${INSTALL_DIR}/R/plugin.xml
+
+   if test -r ${INSTALL_DIR}/R/RGnumeric.so ; then
+    rm ${INSTALL_DIR}/R/RGnumeric.so
+   fi
+   ln -s ${R_PACKAGE_DIR}/libs/RGnumeric.so ${INSTALL_DIR}/R/RGnumeric.so
+  
+   echo "Installed R plugin into ${INSTALL_DIR}"
+ else
+   echo "You do not have permission to install the gnumeric plugin files in the gnumeric directory ${INSTALL_DIR}"
+   echo "Login as root and run the 'cleanup' script in `pwd`"
+ fi
+fi
+
+done

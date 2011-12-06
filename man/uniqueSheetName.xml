@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp">
+<shelp:name>
+uniqueSheetName
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+uniqueSheetName
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Generate unique name for a sheet within a workbook.
+</shelp:title>
+
+
+<shelp:description>
+This Return a name for a sheet that is unique within the
+workbook by appending to the callers suggested name.
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="uniqueSheetName">
+<shelp:sname>
+uniqueSheetName
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+name
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+book
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+suffix
+</shelp:argName>
+<shelp:defaultValue>
+T
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+counter
+</shelp:argName>
+<shelp:defaultValue>
+T
+</shelp:defaultValue>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:argName>
+name
+<shelp:argDescription>
+ <!-- Describe name here -->
+</shelp:argDescription>
+</shelp:argName>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+book
+<shelp:argDescription>
+ <!-- Describe book here -->
+</shelp:argDescription>
+</shelp:argName>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+suffix
+<shelp:argDescription>
+ <!-- Describe suffix here -->
+</shelp:argDescription>
+</shelp:argName>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+counter
+<shelp:argDescription>
+ <!-- Describe counter here -->
+</shelp:argDescription>
+</shelp:argName>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+  <!-- If necessary, more details than the  __description__  above -->
+</shelp:details>
+
+
+<shelp:value>
+<!-- Describe the value returned  If it is a LIST, use  <description><item><label>comp1</label>Description of `comp1'</item>  <item><label>comp2</label>Description of `comp2'</item>  ...  </description>-->
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:sref>
+</shelp:sref>
+<a href="">
+</a>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:first>
+	<!-- code run before the example to initialize variables, etc. -->
+</shelp:first>
+<shelp:code>
+	<!-- the actual code for the example -->
+</shelp:code>
+<shelp:output>
+	<!-- expected output -->
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

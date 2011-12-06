@@ -1,0 +1,173 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4"
+>
+<shelp:name>
+clearSheet
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+clearSheet
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Clear the contents cells in a Gnumeric sheet.
+</shelp:title>
+
+
+<shelp:description>
+<em>This is not currently implemented</em>
+
+<br/>
+
+This function allows the caller to remove the contents of some or all
+of the cells in a Gnumeric workseet.  One can specify a region of
+cells to empty or alternatively operate on the entire sheet.
+
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="clearSheet">
+<shelp:sname>
+clearSheet
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+rows
+</shelp:argName>
+<shelp:defaultValue>
+NULL
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+cols
+</shelp:argName>
+<shelp:defaultValue>
+NULL
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+how
+</shelp:argName>
+<shelp:defaultValue>
+-1
+</shelp:defaultValue>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+.sheet
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:argName>
+rows
+</shelp:argName>
+<shelp:argDescription>
+an integer vector giving the rows 
+of the region whose cells are to be cleared.
+If this is missing,  all rows
+which have at least one non-empty cell
+is assumed.
+This is used in conjunction with <shelp:argRef name="cols"/>.
+If both are missing, the entire worksheet is cleared.
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+cols
+</shelp:argName>
+<shelp:argDescription>
+A character or integer vector
+identifying the columns of the sheet 
+to clear.
+This is used in conjunction with <shelp:argRef name="rows"/>
+to identify the region to clear.
+If both are missing, the entire worksheet is cleared. <!-- Describe cols here -->
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+how
+</shelp:argName>
+<shelp:argDescription>
+ Currently ignored.
+This will be used in the future to control
+exactly what aspects of the cell are cleared
+(e.g. value, format, comments, etc.)
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:argName>
+.sheet
+</shelp:argName>
+<shelp:argDescription>
+the <s:class>GnumericSheetRef</s:class>
+object whose cells are to be cleared.
+This must be obtained as an argument
+to an S function called from Gnumeric 
+and should not be stored across calls.
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+
+
+<shelp:value>
+Currently, <s:null/>
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:functionRef>gnumeric.registerFunction</shelp:functionRef>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

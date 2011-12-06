@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home/duncan/Projects/org/omegahat/XML/RSHelp/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp"
+       xmlns:s="http://cm.bell-labs.com/stat/S4" 
+>
+
+<shelp:name>
+"$.GnumericCellRef"
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+"$.GnumericCellRef"
+</shelp:alias>
+<shelp:alias>
+"$&lt;-.GnumericCellRef"
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+Accessors for attributes of a Gnumeric cell. 
+</shelp:title>
+
+
+<shelp:description>
+These are methods for the <s:operator>$</s:operator>
+<s:operator>$&lt;-</s:operator> operators
+that allow the caller to query
+and set the attributes of a cell in a Gnumeric 
+worksheet. Currently one can get and set
+the contents (i.e. value of the cell), the horizontal and vertical
+alignment, the author, the comment,
+font family and style, 
+ background and foreground color, format, border
+and protection.
+Additionally, one can get the location (row and column
+index) of the cell (but obviously not set it!).
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="$.GnumericCellRef">
+<shelp:sname>
+"$.GnumericCellRef"
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+name
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+<shelp:usage name="$&lt;-.GnumericCellRef">
+<shelp:sname>
+"$&lt;-.GnumericCellRef"
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+x
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+name
+</shelp:argName>
+</shelp:arg>
+<shelp:arg>
+<shelp:argName>
+value
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:usedIn>
+$.GnumericCellRef
+</shelp:usedIn>
+<shelp:usedIn>
+$&lt;-.GnumericCellRef
+</shelp:usedIn>
+<shelp:argName>
+x
+</shelp:argName>
+<shelp:argDescription>
+The object of class
+<s:class>GnumericCellRef</s:class>
+whose attribute(s) are to to be queried 
+or set.
+This is usually obtained via a call
+the <s:operator>[[</s:operator>
+method for <s:class>GnumericSheetRef</s:class>
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+$.GnumericCellRef
+</shelp:usedIn>
+<shelp:usedIn>
+$&lt;-.GnumericCellRef
+</shelp:usedIn>
+<shelp:argName>
+name
+</shelp:argName>
+<shelp:argDescription>
+
+ the name of the attribute being queried or set.
+Currently this should be one of
+<code>value</code>,
+<code>halign</code>,
+<code>valign</code>,
+and <code>pos</code> in the case of
+<s:functionRef>$.GnumericCellRef</s:functionRef>.
+
+</shelp:argDescription>
+</shelp:argument>
+<shelp:argument>
+<shelp:usedIn>
+$&lt;-.GnumericCellRef
+</shelp:usedIn>
+<shelp:argName>
+value
+</shelp:argName>
+<shelp:argDescription>
+ the new value for the specified attribute of the cell.
+The type of this argument depends on the 
+attribute being set. For
+<code>value</code>, this can be any value.
+The alignment attributes (<code>halign</code> and
+<code>valign</code>)
+should be 
+</shelp:argDescription>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+ This uses internal C routines to derefence the 
+Cell reference and access the attribute.
+More attributes will be accessible in future releases.
+</shelp:details>
+
+
+<shelp:value>
+<s:functionRef>$&lt;-.GnumericCellRef</s:functionRef>
+returns the cell reference object <s:argRef>x</s:argRef>
+itself.
+
+<p/>
+<s:functionRef>$.GnumericCellRef</s:functionRef>
+returns the value for the specified attribute.
+<code>value</code> returns the contents of the cell
+converted from Gnumeric to S.
+The alignment attributes return a named 
+integer vector of length 1. The name
+is the human-readable form of the alignment
+setting. The integer value represents the internal 
+representation of that setting.
+<code>pos</code> returns an integer vector
+of length 2 containing the row and column
+indices for that cell.
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:sref>
+</shelp:sref>
+<a href="">
+</a>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:first>
+	<!-- code run before the example to initialize variables, etc. -->
+</shelp:first>
+<shelp:code>
+	<!-- the actual code for the example -->
+</shelp:code>
+<shelp:output>
+	<!-- expected output -->
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

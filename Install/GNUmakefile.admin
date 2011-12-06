@@ -1,0 +1,55 @@
+CONFIG_HEADER=Install/Rconfig.h.in
+include $(OMEGA_HOME)/Config/GNUmakefile.PackageConfig
+
+MAN_FILES=$(shell find man -name '*.xml')
+
+JAVA_CLASSES=RNetscape.class RGraphicsPlugin.class
+
+WRITEUPS=Docs/introduction.pdf Docs/QuickOverview.pdf \
+          Docs/RGnumericManual.pdf \
+
+#          Docs/Example.pdf 
+
+# $(WRITEUPS:%.pdf=%.tex) \
+
+DOC_FILES=$(WRITEUPS) \
+          $(OMEGA_HOME)/Docs/OmegaTech.css $(OMEGA_HOME)/Docs/html.css \
+          
+
+XML_HELP_FILES=$(shell ls man/*.xml)
+RD_HELP_FILES=$(XML_HELP_FILES:%.xml=%.Rd)
+
+MAN_FILES=$(RD_HELP_FILES) $(XML_HELP_FILES)
+
+doc:
+	echo $(DOC_FILES)
+
+C_SRC_FILES=\
+  RGnumeric.c RSheet.c RConvert.c RGnumericPlugin.c RWorkbook.c \
+  RFormat.c RUtils.c RCell.c RReadWritePlugin.c \
+  FunctionEditor.c
+
+LOCAL_HEADERS= RConvert.h RGnumeric.h RSheet.h RUtils.h 
+
+C_INCLUDE_FILES=\
+  $(LOCAL_HEADERS) $(OMEGA_HOME)/include/Corba/RSCommon.h
+
+R_SRC_FILES=register.S First.lib sheet.S workbook.S insert.S format.S cell.S align.S \
+            columns.S eval.S version.S
+
+R_SRC_FILES:=$(R_SRC_FILES:%=Src/%)   
+
+DEPENDS=Install/configure $(C_INCLUDE_FILES) $(C_SRC_FILES)  $(RD_HELP_FILES)
+
+DEPENDS+=$(DOC_FILES)
+
+R_PACKAGE_FILES+= plugin.xml plugin-new.xml
+
+include $(OMEGA_HOME)/Config/GNUmakefile.PackageRules
+
+
+Docs/%.html: Docs/%.xml
+	$(MAKE) -C $(@D) $(@F)
+
+man/%.Rd: man/%.xml
+	$(MAKE) -C $(@D) $(@F)

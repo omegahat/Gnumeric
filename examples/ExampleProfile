@@ -1,0 +1,192 @@
+print(commandArgs())
+
+library(RGnumeric)
+gtmp <- dirname(Sys.getenv("R_GNUMERIC_PROFILE"))
+
+source(file.path(gtmp, "bernoulli.S"))
+
+gnumeric.registerFunction(function(r, .sheet) {
+                            data <- getSheetRegion(r[[1]]+c(1,0), r[[2]],.sheet)
+                            cols <- seq(r[[1]][2], r[[2]][2])
+#print(cols)
+                            headers <- .sheet[r[[1]][1], cols]
+cat("Number of variables:",length(data),"\n")
+                            data <- as.data.frame(data)
+print(as.character(unlist(headers)))
+print(dim(data))
+                            names(data) <- as.character(unlist(headers))
+  
+ f <- formula(paste(headers[1], paste(headers[-1], sep=" + "), sep=" ~ "))
+ fit <- lm(f, data = data)
+ s <- summary(fit)
+                            out <- newSheet("regress", .sheet)
+                            out[1,1] <- "Regression Fit"
+
+               # Residuals
+               # 
+  s$coefficients
+
+  tmp <- summary(s$residuals)
+  out[2,1] <- "Residuals"
+  out[3,] <- names(tmp)
+  out[4,] <- as.numeric(tmp)
+
+
+ #                           out[2,1]
+                            T
+                            },
+                              "getRegion", "r", "region", "test getting range")
+
+
+
+gnumeric.registerFunction(function(.sheet){ 
+                           print(names.GnumericWorkbookRef(getGnumericWorkbook(.sheet)))
+                           T
+                          }, "checkSheetNames", "", "", "check names of sheets")
+
+
+gnumeric.registerFunction(function(.sheet){ 
+                           w <- getGnumericWorkbook(.sheet)
+                           cat("Number of sheets",length.GnumericWorkbookRef(w),"\n")
+                           print(class(w[1]))
+                           print(dim.GnumericSheetRef(w[1]))
+                           print(dim(w[1]))
+                           print(dim.GnumericSheetRef(w[1], F))
+                           T
+                          }, "workSheetAccess", "", "", "check accessing sheets in workbook")
+
+gnumeric.registerFunction(function(.sheet, .cell){ 
+                           w <- getGnumericWorkbook(.sheet)
+                           if(is.null(w[["Transient"]])) {
+                               cat("Creating new sheet\n")
+                               newSheet("Transient", .sheet, F)
+                           } else {
+                             k <- .sheet[[.cell[1],.cell[2]]]
+                             k$value <- "Done"
+                             print(w[["Transient"]])
+                             removeSheet(w[["Transient"]])
+                           }
+                           T
+                          }, "removeSheet", "", "", "check removal of a sheet")
+
+
+gnumeric.registerFunction(function(.sheet){ 
+                                                      
+                          cell <- .sheet[[2,1]]
+print(cell)
+cat("row, col: ", cell$pos,"\n")
+print(cell$halign)
+print(cell$value)
+cell$value <- "Some text"
+print(cell$value)
+cell$halign <- 4
+print(cell$halign)
+                           T
+                          }, "cellRef", "", "", "check accesing C references")
+
+
+gnumeric.registerFunction(function(.sheet) {
+ .sheet[2,1] <- "A string"
+ .sheet[3, ] <- c(1, 2, 3.3)
+ .sheet[, 6] <- c(T,F,T)
+ .sheet[5,7] <- matrix(1:12,4,3)
+ .sheet[5,5] <- list("list element", 1, 2)
+ 1
+}, "testSubset", "", "", "testing subset assignment")
+
+
+gnumeric.registerFunction(function(.sheet) {
+
+ data(mtcars)
+ sm <- summary(lm(mpg ~ wt + cyl, data=mtcars))
+ .sheet <- newSheet("regress", .sheet) 
+
+ .sheet[1,3] <- "Result of regression"
+
+ .sheet[2,1]  <- "Residuals"
+ .sheet[3,] <- names(summary(sm$residuals))
+ .sheet[4,] <- summary(sm$residuals)
+
+ .sheet[6,1]  <- "Coefficients"
+ .sheet[7,1] <- sm$coefficients
+# equivalent to 
+#   insertMatrix(sm$coefficients, .sheet, c(7,1))
+
+ .sheet[2,8] <- list("Multiple R-squared", sm$"r.squared")
+ .sheet[3,8] <- list("Adjusted R-squared", sm$"adj.r.squared")
+
+ .sheet[5,8] <- list("F-statistic", sm$fstatistic)
+ .sheet[6,8] <- unlist(list("degrees of freedom", sm$df[3:2]))
+
+  1
+}, "lmResults", "", "", "test output of results of lm to a sheet")
+
+
+gnumeric.registerFunction(function(.sheet) { 
+                            fmt <- getCellFormat(.sheet=.sheet)
+print(class(fmt))
+fmt$color$foreground$rgb <- as.integer(c(65535,0, 0))
+                            formatCell( .sheet = .sheet, format=fmt)
+
+fmt1 <- getCellFormat(2,1, .sheet=.sheet)
+print(fmt1$color$foreground)
+fmt$color$foreground$rgb <- as.integer(c(0, 65500, 65535))
+                            formatCell(2,1, .sheet = .sheet, format=fmt)
+                            tmp <- getCellFormat(2,1, .sheet = .sheet)
+print(tmp$color$foreground)
+
+  # now set a region
+          formatCell(6:8, 2:3, .sheet = .sheet, format=fmt, copyCell=c(1,1))
+
+
+if(F) {
+ print(fmt1$font)
+ print(getCellFormat(2,1, .sheet=.sheet))
+ print(getCellFormat(2,2, .sheet=.sheet)$format)
+}
+
+#print(getCellFormat(2,1, .sheet=.sheet)$font)
+#    fmt <- getCellFormat(.sheet=.sheet)
+#    print(fmt$color)
+                            1
+                          },
+                          "testFormat", "","","testing the formatting of a cell")
+
+
+gnumeric.registerFunction(function(name, .sheet){ s <- newSheet(name, .sheet); getSheetName(s)},
+                           "newSheet", "s", "", "test of newSheet")
+
+gnumeric.registerFunction(function(msg){ stop(msg); print("Still going"); T},
+                           "stop", "s", "", "test of error handling")
+
+
+gnumeric.registerFunction(function(...){ cat("Varargs",length(list(...)),"\n"); length(list(...))},
+                           "var", "|", "", "test of var arguments")
+
+gnumeric.registerFunction(function(what, ...) { 
+                             print(what)
+                             print(list(...))
+                             sum(c(...))
+                          },
+                          "varName", "s|", "", "test of var arguments")
+
+
+
+gnumeric.registerFunction(function(.cell, .sheet, x=1) {
+ print(.cell)
+ print(.sheet)
+ print(x)
+}, "testCellArg", "","","test the named internal arguments")
+
+
+
+counter <- function() {
+  counter <- 1
+  function() {
+    counter <<- counter + 1
+    counter
+  }
+}
+gnumeric.registerFunction(counter(), "callCounter", "", "", "counts the number of times the cell is (re-)evaluated")
+
+print(names(gnumeric.getFunctions()))

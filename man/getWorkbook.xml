@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!DOCTYPE Shelp SYSTEM "file:///home3/duncan/R/library/RSHelp/data/SHelp.dtd">
+
+
+<Shelp xmlns:shelp="http://www.omegahat.org/XML/RSHelp">
+<shelp:name>
+getGnumericWorkbook
+</shelp:name>
+
+
+<shelp:aliases>
+<shelp:alias>
+getGnumericWorkbook
+</shelp:alias>
+<shelp:alias>
+gnumeric.getDefaultWorkBook
+</shelp:alias>
+</shelp:aliases>
+
+
+<shelp:title>
+ <!-- function to do ...  --> 
+</shelp:title>
+
+
+<shelp:description>
+  <!--  A concise (1-5 lines) description of what the function does. -->
+</shelp:description>
+
+
+<shelp:usages>
+<shelp:usage name="getGnumericWorkbook">
+<shelp:sname>
+getGnumericWorkbook
+</shelp:sname>
+<shelp:arg>
+<shelp:argName>
+.sheet
+</shelp:argName>
+</shelp:arg>
+</shelp:usage>
+<shelp:usage name="gnumeric.getDefaultWorkBook">
+<shelp:sname>
+gnumeric.getDefaultWorkBook
+</shelp:sname>
+</shelp:usage>
+</shelp:usages>
+
+
+<shelp:arguments>
+<shelp:argument>
+<shelp:usedIn>
+getGnumericWorkbook
+</shelp:usedIn>
+<shelp:argName>
+.sheet
+<shelp:argDescription>
+ <!-- Describe .sheet here -->
+</shelp:argDescription>
+</shelp:argName>
+</shelp:argument>
+</shelp:arguments>
+
+
+<shelp:details>
+  <!-- If necessary, more details than the  __description__  above -->
+</shelp:details>
+
+
+<shelp:value>
+<!-- Describe the value returned  If it is a LIST, use  <description><item><label>comp1</label>Description of `comp1'</item>  <item><label>comp2</label>Description of `comp2'</item>  ...  </description>-->
+</shelp:value>
+
+
+<shelp:references>
+<shelp:reference>
+<a href='http://www.gnome.org/projects/gnumeric/'>Gnumeric</a>
+</shelp:reference>
+<shelp:reference>
+<a href='http://www.omegahat.org/RGnumeric'>RGnumeric</a>
+</shelp:reference>
+</shelp:references>
+
+
+<shelp:authors>
+<shelp:author>
+<a href='http://cm.bell-labs.com/stat/duncan'>Duncan Temple Lang</a>
+</shelp:author>
+</shelp:authors>
+
+
+<shelp:note>
+The interface is highly experimental. The basic mechanism is reasonably solid.
+</shelp:note>
+
+
+<shelp:seeAlso>
+<shelp:sref>
+</shelp:sref>
+<a href="">
+</a>
+</shelp:seeAlso>
+
+
+<shelp:examples>
+<shelp:example name="1">
+<shelp:documentation>
+	<!-- Description of the example -->
+</shelp:documentation>
+<shelp:first>
+	<!-- code run before the example to initialize variables, etc. -->
+</shelp:first>
+<shelp:code>
+	<!-- the actual code for the example -->
+</shelp:code>
+<shelp:output>
+	<!-- expected output -->
+</shelp:output>
+<shelp:last>
+	<!-- code run after example to cleanup -->
+</shelp:last>
+</shelp:example>
+</shelp:examples>
+
+
+<shelp:keywords>
+<shelp:keyword>
+interface
+</shelp:keyword>
+</shelp:keywords>
+
+
+</Shelp>

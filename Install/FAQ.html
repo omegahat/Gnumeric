@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title></title>
+<link rel="stylesheet" href="OmegaTech.css">
+</head>
+
+<body>
+<h1></h1>
+
+<dl>
+  <dt>
+  <li> When I run Gnumeric I get errors about not being
+      able to find the function 
+  <dd>
+  <dt>
+    When I print values in functions called from Gnumeric,
+       everything seems to be out of order?
+  <dd>
+       The order in which the cells are evaluated is not
+      specified and so the calls to the S functions can
+       come in a different order than you might expect.
+
+  <dt>
+      I installed the plugin, but I can't call any R functions.
+      
+  <dd> There are two possiblities:
+      <ul>
+	<li> you haven't activated the plugin, and/or
+	<li> you haven't actually exported any functions
+      </ul>
+
+      To activate the plugin, follow
+      <a href="README.html#activation">these instructions</a>
+      <p>
+       To export a function, follow
+        <a href="#exporting">these instructions.</a>
+
+      
+  <dt>
+      I forgot to set my LD_LIBRARY_PATH to include
+      <code>R_HOME/bin</code>
+      and now the plugin never starts?
+  <dd>
+      Gnumeric de-activates a plugin when it fails to start.
+      You will need to <a href="#activation">reactivate it</a>.
+
+  <dt>
+      How do I make R functions available to gnumeric?
+      Do I have to tell gnumeric about all R functions?
+      
+  <dd><a name="exporting"></a>
+      Yes, you have to explicitly register functions
+      with Gnumeric. This is because Gnumeric needs
+      to know about the types of the arguments, etc.
+      <br>
+       To export functions from R to Gnumeric,
+       you specify a file that the R plugin should
+       read when it is initialized.
+       In this file, you export functions by repeated
+       calls to <code>gnumeric.registerFunction()</code>.
+      <p>
+       These calls to <code>gnumeric.registerFunction()</code>
+       can be in a profile script that is read when R starts,
+       or in a file that is read when the R plugin is started.
+       There are
+        <a href="http://cran.r-project.org/doc/FAQ/R-FAQ.html">
+         several potential startup files that R reads</a>:
+      <ul>
+	<li> specified by the environment variable R_PROFILE
+	<li> $R_HOME/etc/Rprofile
+	<li> $HOME/.Rprofile
+      </ul>
+      Finally, the plugin reads each of the additional files
+      (if they exist) in the following order
+      <ul>
+	<li> <code>~/.gnumeric/Rprofile</code>
+	<li> <code>~/.gnumeric/<i>gnumeric-version</i>Rprofile</code>
+	<li> the value of the environment variable
+	    <code>R_GNUMERIC_PROFILE</code>
+      </ul>
+      These can add progressively more specific code.
+      
+</dl>
+
+<h2>Building Gnumeric</h2>
+<dl>
+  <dt>
+  <li> Dependencies
+  <dd> Compiling a version of Gnumeric from source
+      may require updating numerous related Gnome libraries.
+      These are the ones that I had to update (on a Yellow Dog Linux
+      box)
+      <ul>
+	<li> libglade
+	<li> gnome-print
+	<li> gal
+	<li> libole2
+      </ul>
+      
+       
+  <dt>
+  <li> libole2
+  <dd>
+      I had to manually put <code>libole2Conf.sh</code>
+       into <code>/usr/lib</code>.
+
+   <dt>
+   <li>
+       When I try to build RGnumeric, I tell it where the Gnumeric
+       source is (via the environment variable GNUMERIC_DIR),
+       but I get error messages like
+<pre>
+Gnumeric.c:13: error: `GNUMERIC_VERSION' undeclared here (not in a function)
+RGnumeric.c:13: error: initializer element is not constant
+RGnumeric.c:13: error: (near initialization for `plugin_file_struct.gnumeric_plugin_version')
+make: *** [RGnumeric.o] Error 1
+</pre>       
+   What's the problem?       
+   <dd>
+
+       This typically means that you have merely untarred the Gnumeric
+       source but have not <i>configured</i> it.
+       While you don't have to compile Gnumeric, you do have to
+       configure it. So the commands
+<pre>
+    cd $GNUMERIC_DIR
+    ./configure
+</pre>
+        will set things up so that installing RGnumeric should work.
+       
+       
+</dl>
+
+
+
+<hr>
+<address></address>
+<!-- hhmts start -->
+Last modified: Fri Jun 20 04:52:51 EDT 2003
+<!-- hhmts end -->
+</body> </html>

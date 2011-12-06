@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>The @PKG_NAME@ package</title>
+<link rel="stylesheet" href="OmegaTech.css">
+</head>
+
+<body>
+<h1>The @PKG_NAME@ package  (version @MAJOR_VERSION@.@MINOR_VERSION@-@PATCH_LEVEL@)</h1>
+
+
+This is a package that allows R to be used as a plugin for <a
+href="http://www.gnome.org/projects/gnumeric/">Gnumeric</a>, the Gnome
+spreadsheet application.  One registers R functions with Gnumeric via
+R commands and these functions can then be called as if they are
+built-in Gnumeric functions.  Additionally, the R functions can create
+and manipulate spreadsheets and individual cells, accessing and
+changing their contents, formatting and appearance attributes.
+
+<p>
+
+This is experimental, although the basic functionality is likely to
+remain reasonably stable. The hope is to get some feedback and to
+encourage others to help or take over the development of the package.
+
+<p>
+
+One can use the <a href="http://www.omegahat.org/RGtk">RGtk</a>
+package in R code that is called from Gnumeric to create GUI
+extensions to Gnumeric and dialogs.  These can be used, for example,
+to provide a command line for evaluating S commands, or a tool to
+manage the registered functions.
+
+
+<h2>R &amp; Excel</h2>
+
+The <a href="../RDCOMClient">RDCOMClient</a>
+and <a href="../RDCOMServer">RDCOMServer</a>packages allow one
+to connect R to Excel. Similarly,
+Eric Neuwirth has connected R to Excel on Windows previously using
+Thomas Baier's <a
+href="http://cran.r-project.org/other_software/">DCOM R server</a>.
+This RGnumeric package is quite different.
+<p>
+
+Primarily, it is aimed at letting the spreadsheet user call R
+functions without knowing they are implemented in R and without having
+to know any of the S language.  In contrast, the R-Excel interface
+works by allowing the Excel user to pass S language commands directly
+to S, requiring the knowledge of both systems. This can be useful for
+S users, but prohibitive for regular spreadsheet users. The RGnumeric
+mechanism allows evaluation of S commands as part of its model by
+allowing one to export/register a Gnumeric function that evaluates a
+string as an S command.
+
+<p>
+
+The RGnumeric interface is bi-directional. By this, we mean that while
+Gnumeric computations can call R functions, R can access Gnumeric
+objects including worksheets and cells within those sheets.  We can
+program in Gnumeric or R as is convenient.
+
+
+
+<h2><a name="Download">Download</a></h2>
+
+The current version is available as a GNU-zipped tar file <a
+href="@TAR_FILE@">@TAR_FILE@</a>
+<p>
+
+This is known to run on different Red Hat Linux ( modified 6.2) and
+has been tested with Gnumeric 0.64 and 0.73.  And now more recently
+with 1.0.8 and 1.0.10.
+
+
+<p>
+
+See <a href="README.html">README.html</a> and <a
+href="INSTALL.html">INSTALL.html</a> for instructions on installing
+and using the package.
+
+<p>
+
+A brief history of the recent changes to the package
+are available in the <a href="Changes.html">Changes.html</a> file.
+
+
+
+<h2><a name="Documentation">Documentation</a></h2>
+
+There are some early attempts to document the package.
+More to come!
+
+<dl>
+  <dt>
+  <li> <a href="Docs/introduction.pdf">Introduction</a>
+  <dd>
+  <dt>
+  <li> <a href="Docs/QuickOverview.pdf">Overview</a>
+  <dd>
+
+  
+  <dt>
+  <li> <a href="Todo.html">Todo list</a>
+  <dd> List of (some of the) things yet to be done
+       related to this packge!
+
+  <dt>
+  <li> <a href="FAQ.html">FAQ</a>
+  <dd>  Compilation and run-time issues we have encountered or heard about.
+      
+</dl>
+
+
+<h2><a name="Examples">Examples</a></h2>
+
+A <a href="examples/index.html">list of example</a> R scripts
+registering functions and spreadsheets that use this is available.
+
+
+<hr>
+<address><a href="http://cm.bell-labs.com/stat/duncan">Duncan Temple Lang</a>
+<a href=mailto:duncan@research.bell-labs.com>&lt;duncan@research.bell-labs.com&gt;</a></address>
+<!-- hhmts start -->
+Last modified: Fri Jun 20 04:55:46 EDT 2003
+<!-- hhmts end -->
+</body> </html>
